@@ -1,0 +1,191 @@
+<!-- Hero Section -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="contact-hero-content">
+      <h1>Contáctanos</h1>
+      <p>Estamos aquí para ayudarte. Envíanos tu mensaje y te responderemos lo antes posible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contenido principal -->
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-layout">
+      <!-- Formulario de contacto -->
+      <div class="contact-form-section">
+        <h2>Envíanos un mensaje</h2>
+        
+        <!-- Información del envío -->
+        <div class="form-info">
+          <p class="form-description">
+            Tu mensaje será enviado directamente a secretaria
+          </p>
+        </div>
+        
+        <!-- Mensaje de éxito -->
+        <div *ngIf="showSuccess" class="alert alert-success">
+          <span>✅</span>
+          <div class="alert-content">
+            <p class="alert-title">¡Mensaje enviado exitosamente!</p>
+            <p class="alert-message">{{ successMessage }}</p>
+            <p class="alert-detail">
+              <strong>Destinatario:</strong> {{ getContactEmail() }}
+            </p>
+          </div>
+          <button class="alert-close" (click)="closeSuccess()">×</button>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div *ngIf="showError" class="alert alert-error">
+          <span>⚠️</span>
+          <div class="alert-content">
+            <p class="alert-title">Error al enviar el mensaje</p>
+            <p class="alert-message">{{ errorMessage }}</p>
+          </div>
+          <button class="alert-close" (click)="closeError()">×</button>
+        </div>
+
+        <form (ngSubmit)="submitForm()" class="contact-form">
+          <!-- Nombre -->
+          <div class="form-group">
+            <label for="name" class="form-label">Nombre completo *</label>
+            <input 
+              type="text" 
+              id="name" 
+              [(ngModel)]="contactForm.name" 
+              name="name"
+              class="form-input"
+              placeholder="Ingresa tu nombre completo"
+              required
+            >
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email" class="form-label">Tu email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              [(ngModel)]="contactForm.email" 
+              name="email"
+              class="form-input"
+              placeholder="tu@email.com"
+              required
+            >
+            <small class="form-help">Usaremos este email para responderte</small>
+          </div>
+
+                    <div class="form-group">
+            <label for="phone" class="form-label">Tu número de telefono *</label>
+            <input 
+              type="email" 
+              id="email" 
+              [(ngModel)]="contactForm.phone" 
+              name="phone"
+              class="form-input"
+              placeholder="Tu Teléfono"
+              required
+            >
+            <small class="form-help">Usaremos este Número para responderte</small>
+          </div>
+
+
+          <!-- Mensaje -->
+          <div class="form-group">
+            <label for="message" class="form-label">Mensaje *</label>
+            <textarea 
+              id="message" 
+              [(ngModel)]="contactForm.message" 
+              name="message"
+              class="form-input"
+              rows="5"
+              placeholder="Escribe tu mensaje aquí..."
+              required
+            ></textarea>
+            <small class="form-help">Mínimo 10 caracteres</small>
+          </div>
+
+          <!-- Botón de envío -->
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            [disabled]="isSubmitting"
+          >
+            <span *ngIf="isSubmitting" class="loading-text">
+              <span class="loading-spinner"></span>
+              Enviando mensaje...
+            </span>
+            <span *ngIf="!isSubmitting">Enviar Mensaje</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Información de contacto -->
+      <div class="contact-info-section">
+        <h2>Información de contacto</h2>
+        
+        <div class="contact-info-grid">
+          <div class="contact-info-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Dirección</h3>
+              <p>{{ contactInfo.address }}</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h3>Teléfono</h3>
+              <p>{{ contactInfo.phone }}</p>
+            </div>
+          </div>
+
+          <!-- Email principal -->
+          <div class="contact-info-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-details">
+              <h3>Email Principal</h3>
+              <p class="email-link">
+                <a href="mailto:{{ contactInfo.email }}" target="_blank">
+                  {{ contactInfo.email }}
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Emails adicionales -->
+          <div class="contact-info-item" *ngIf="contactInfo.additionalEmails.length > 0">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Otros Emails</h3>
+              <div class="additional-emails">
+                <p *ngFor="let email of contactInfo.additionalEmails" class="email-link">
+                  <a href="mailto:{{ email }}" target="_blank">
+                    {{ email }}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">🕒</div>
+            <div class="contact-details">
+              <h3>Horarios de atención</h3>
+              <p [innerHTML]="contactInfo.hours.replace('\n', '<br>')"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa placeholder -->
+        <div class="map-placeholder">
+          <div class="map-icon">🗺️</div>
+          <h3>Ubicación</h3>
+          <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.0727820239745!2d-57.68265602335098!3d-36.310541849634554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95999e5a8466eb7f%3A0x9afa445df209f683!2sAv.%20Buenos%20Aires%20565%2C%20B7100%20Dolores%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1755710925752!5m2!1ses-419!2sar" width="350" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

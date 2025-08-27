@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Ingeniería en Sistemas",
+    "description": "Carrera orientada al desarrollo de software y sistemas informáticos. Forma profesionales capaces de diseñar, implementar y mantener soluciones tecnológicas.",
+    "days": ["Lunes", "Miércoles", "Viernes"]
+  },
+  {
+    "id": 2,
+    "name": "Licenciatura en Administración",
+    "description": "Formación en gestión y administración de empresas. Desarrolla habilidades para la toma de decisiones estratégicas y la gestión de recursos organizacionales.",
+    "days": ["Martes", "Jueves"]
+  },
+  {
+    "id": 3,
+    "name": "Contador Público",
+    "description": "Carrera que forma profesionales en contabilidad, auditoría y finanzas. Capacita para el análisis financiero y la gestión contable empresarial.",
+    "days": ["Lunes", "Martes", "Jueves"]
+  },
+  {
+    "id": 4,
+    "name": "Ingeniería Industrial",
+    "description": "Formación en optimización de procesos industriales y gestión de la producción. Desarrolla competencias para mejorar la eficiencia operativa.",
+    "days": ["Miércoles", "Viernes"]
+  },
+  {
+    "id": 5,
+    "name": "Psicología",
+    "description": "Carrera que estudia el comportamiento humano y los procesos mentales. Prepara profesionales para la intervención psicológica en diversos contextos.",
+    "days": ["Lunes", "Martes", "Miércoles", "Jueves"]
+  }
+]

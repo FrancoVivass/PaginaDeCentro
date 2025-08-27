@@ -1,0 +1,69 @@
+/* Variables de color (puedes definirlas en :root para usarlas globalment
+/* Container general */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.calendar-container {
+  width: 100%;
+  height: 100vh; /* Ocupa toda la pantalla */
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* Hero Section */
+
+/* Responsive */
+@media (max-width: 900px) {
+  .calendar-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .current-month {
+    text-align: center;
+  }
+  .reservation-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .reservation-details {
+    align-items: flex-start;
+  }
+  .calendar-day {
+    min-height: 70px;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .calendar-container {
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+  }
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .calendar-hero-content p {
+    font-size: 1rem;
+  }
+  .calendar-controls {
+    padding: 1rem;
+  }
+}

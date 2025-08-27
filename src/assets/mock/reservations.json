@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "room": "Aula 101",
+    "date": "2025-01-15",
+    "startTime": "09:00",
+    "endTime": "11:00",
+    "reservedBy": "María Pérez"
+  },
+  {
+    "id": 2,
+    "room": "Aula 102",
+    "date": "2025-01-15",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "reservedBy": "Carlos Rodríguez"
+  },
+  {
+    "id": 3,
+    "room": "Aula 103",
+    "date": "2025-01-16",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "reservedBy": "Ana López"
+  }
+]

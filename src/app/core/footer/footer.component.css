@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ========================================
+   ESTILOS BASE
+   ======================================== */
+* {
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   COVER SECTION
+   ======================================== */
+
+/* ========================================
+   CONTAINER ARTICLES
+   ======================================== */
+.container__article {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+/* ========================================
+   FOOTER PRINCIPAL
+   ======================================== */
+footer {
+  background-image: url(./background-footer.svg);
+  width: 100%;
+
+}
+
+
+
+.container__footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  
+  margin: 0 auto;
+  padding-top:200px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================
+   BOXES DEL FOOTER
+   ======================================== */
+.box__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  color: rgb(0, 0, 0);
+}
+
+.box__footer .logo {
+  margin-bottom: 1.5rem;
+}
+
+.box__footer .logo {
+  height: 14rem;
+  background-image: var(--logon);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+
+  transition: var(--transition);
+}
+
+.box__footer .logo img:hover {
+  transform: scale(1.05);
+}
+
+.box__footer .terms {
+  max-width: 350px;
+  margin-top: 1rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.box__footer h2 {
+  margin-bottom: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.box__footer h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--color-secundario);
+  border-radius: 2px;
+}
+
+.box__footer a {
+  margin-top: 0.75rem;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.box__footer a:hover {
+  color: rgb(0, 0, 0);
+  transform: translateX(5px);
+}
+
+.box__footer a .fab {
+  font-size: 1.2rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* ========================================
+   COPYRIGHT SECTION
+   ======================================== */
+.box__copyright {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  text-align: center;
+  padding: 2rem 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.box__copyright hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 0 1.5rem 0;
+}
+
+.box__copyright p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* ========================================
+   SOCIAL MEDIA ICONS
+   ======================================== */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--color-secundario);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1200px) {
+  .container__footer {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .container__article {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 992px) {
+
+  
+  .container__footer {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .box__footer .logo img {
+    height: 50px;
+  }
+  
+  .box__footer .terms {
+    max-width: 100%;
+  }
+  
+  .container__article {
+    max-width: 800px;
+  }
+  
+  .box__article,
+  .box__article1 {
+    width: 180px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cover {
+    height: 400px;
+    margin-top: 15px;
+  }
+  
+  .container__article {
+    padding: 0 15px;
+    margin: 15px auto 0;
+    gap: 15px;
+  }
+  
+  .box__article,
+  .box__article1 {
+    width: 160px;
+    height: 200px;
+  }
+  
+  footer {
+    padding: 40px 0 20px;
+    margin-top: 30px;
+  }
+  
+  .container__footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .box__footer {
+    align-items: center;
+  }
+  
+  .box__footer h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .box__footer .logo img {
+    height: 10rem;
+  }
+  
+  .box__footer .terms {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  .box__footer a {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .box__copyright {
+    padding: 1.5rem 15px 0;
+  }
+  
+  .box__copyright p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover {
+    height: 300px;
+    margin-top: 10px;
+  }
+  
+  .container__article {
+    padding: 0 10px;
+    margin: 10px auto 0;
+    gap: 10px;
+  }
+  
+  .box__article,
+  .box__article1 {
+    width: 140px;
+    height: 180px;
+  }
+  
+  footer {
+    padding: 30px 0 15px;
+    margin-top: 20px;
+  }
+  
+  .container__footer {
+    gap: 1.5rem;
+    padding: 0 15px;
+  }
+  
+  .box__footer .logo img {
+    height: 8rem;
+  }
+  
+  .box__footer h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .box__footer .terms {
+    font-size: 0.9rem;
+  }
+  
+  .box__footer a {
+    font-size: 0.9rem;
+  }
+  
+  .social-links {
+    gap: 0.75rem;
+  }
+  
+  .social-links a {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .box__copyright {
+    padding: 1rem 10px 0;
+  }
+  
+  .box__copyright p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container__footer {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.box__footer {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

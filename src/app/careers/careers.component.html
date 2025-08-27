@@ -1,0 +1,157 @@
+<div class="Cuerpo">
+
+
+<main class="careers">
+  <section class="careers-hero">
+    <div class="container">
+      <div class="careers-hero-content">
+        <h1>Nuestras Carreras</h1>
+        <p>Descubre la amplia variedad de programas académicos diseñados para tu futuro profesional</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-section">
+    <div class="container">
+      <div class="search-container">
+        <div class="search-input-group">
+          <input 
+            type="text" 
+            [(ngModel)]="searchTerm" 
+            (input)="filterCareers()"
+            placeholder="Buscar carreras por nombre, descripción o días..."
+            class="search-input"
+          >
+          <button 
+            (click)="clearSearch()" 
+            class="search-clear"
+            *ngIf="searchTerm"
+            aria-label="Limpiar búsqueda"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="search-info">
+          <span *ngIf="filteredCareers.length !== careers.length">
+            Mostrando {{ filteredCareers.length }} de {{ careers.length }} carreras
+          </span>
+          <span *ngIf="filteredCareers.length === careers.length">
+            {{ careers.length }} carreras disponibles
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-list">
+    <div class="container">
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Cargando carreras...</p>
+      </div>
+
+      <div *ngIf="error && !isLoading" class="error-state">
+        <div class="error-icon">⚠️</div>
+        <p>{{ error }}</p>
+        <button (click)="loadCareers()" class="btn">Reintentar</button>
+      </div>
+
+      <div *ngIf="!isLoading && !error" class="careers-grid" role="list">
+        <button 
+          *ngFor="let career of filteredCareers" 
+          class="career-card"
+          (click)="selectCareer(career)"
+          [class.selected]="career === selectedCareer"
+          type="button"
+          role="listitem"
+        >
+          <div class="career-header">
+            <h3 class="career-title">{{ career.name }}</h3>
+            <div class="career-days">
+              <span *ngFor="let day of career.days" class="day-tag">
+                {{ day }}
+              </span>
+            </div>
+          </div>
+          
+          <p class="career-description">{{ career.description }}</p>
+          
+          <div class="career-footer">
+            <span class="career-schedule">
+              <strong>Días de cursada:</strong> {{ career.days.join(', ') }}
+            </span>
+          </div>
+        </button>
+      </div>
+
+      <div *ngIf="!isLoading && !error && filteredCareers.length === 0" class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h3>No se encontraron carreras</h3>
+        <p>No hay carreras que coincidan con tu búsqueda "{{ searchTerm }}"</p>
+        <button (click)="clearSearch()" class="btn">Ver todas las carreras</button>
+      </div>
+
+      <!-- Detalle -->
+      <section *ngIf="selectedCareer" class="career-detail" aria-live="polite">
+        <h2>Detalle de {{ selectedCareer.name }}</h2>
+        
+        <table class="career-detail-table">
+          <tr>
+            <th>Descripción</th>
+            <td>{{ selectedCareer.description }}</td>
+          </tr>
+
+          <tr>
+            <th>Días de cursada</th>
+            <td>{{ selectedCareer.days.join(', ') }}</td>
+          </tr>
+
+          <tr *ngIf="selectedCareer.schedule?.length">
+            <th>Horarios de cursada</th>
+            <td>
+              <table class="nested-table" aria-label="Horarios de cursada">
+                <thead>
+                  <tr>
+                    <th>Día</th>
+                    <th>Hora inicio</th>
+                    <th>Hora fin</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let slot of selectedCareer.schedule">
+                    <td>{{ slot.day }}</td>
+                    <td>{{ slot.startTime }}</td>
+                    <td>{{ slot.endTime }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <tr *ngIf="selectedCareer.subjects?.length">
+            <th>Materias</th>
+            <td>
+              <table class="nested-table" aria-label="Materias de la carrera">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let subject of selectedCareer.subjects">
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.description || '-' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <button class="btn" (click)="clearSelection()">Cerrar</button>
+      </section>
+    </div>
+  </section>
+</main>
+</div>

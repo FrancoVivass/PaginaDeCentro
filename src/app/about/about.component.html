@@ -1,0 +1,46 @@
+<div class="cuerpo"><div class="about-container container">
+    <!-- Pestañas -->
+    <div class="tabs">
+      <button (click)="setTab('teachers')" [class.active]="activeTab==='teachers'">Profesores</button>
+      <button (click)="setTab('directors')" [class.active]="activeTab==='directors'">Directivos</button>
+      <button (click)="setTab('staff')" [class.active]="activeTab==='staff'">Personal</button>
+    </div>
+  
+    <!-- Contenido -->
+    <div class="tab-content">
+      <!-- Profesores -->
+      <div *ngIf="activeTab==='teachers'" class="grid-section">
+        <article *ngFor="let teacher of teachers" class="card">
+          <img *ngIf="teacher.photoUrl; else placeholder" [src]="teacher.photoUrl" [alt]="teacher.fullName" class="photo" loading="lazy" />
+          <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
+          <h3>{{ teacher.fullName }}</h3>
+          <p class="position">{{ teacher.position }}</p>
+          <p class="career" *ngIf="teacher.career"><strong>Carrera:</strong> {{ teacher.career }}</p>
+          <p class="bio" *ngIf="teacher.bio">{{ teacher.bio }}</p>
+        </article>
+      </div>
+  
+      <!-- Directivos -->
+      <div *ngIf="activeTab==='directors'" class="grid-section">
+        <article *ngFor="let director of directors" class="card director-card">
+          <img *ngIf="director.photoUrl; else placeholder" [src]="director.photoUrl" [alt]="director.fullName" class="photo" loading="lazy" />
+          <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
+          <h3>{{ director.fullName }}</h3>
+          <p class="position">{{ director.position }}</p>
+          <p class="bio" *ngIf="director.bio">{{ director.bio }}</p>
+        </article>
+      </div>
+  
+      <!-- Personal -->
+      <div *ngIf="activeTab==='staff'" class="grid-section">
+        <article *ngFor="let s of staff" class="card staff-card">
+          <img *ngIf="s.photoUrl; else placeholder" [src]="s.photoUrl" [alt]="s.fullName" class="photo" loading="lazy" />
+          <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
+          <h3>{{ s.fullName }}</h3>
+          <p class="position">{{ s.position }}</p>
+          <p class="bio" *ngIf="s.bio">{{ s.bio }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

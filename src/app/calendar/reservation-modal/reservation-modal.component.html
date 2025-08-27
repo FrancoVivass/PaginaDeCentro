@@ -1,0 +1,119 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <!-- Header del modal -->
+    <div class="modal-header">
+      <h2>Crear Nueva Reserva</h2>
+      <button class="modal-close" (click)="closeModal()" aria-label="Cerrar modal">
+        ×
+      </button>
+    </div>
+
+    <!-- Fecha seleccionada -->
+    <div class="selected-date-info">
+      <strong>Fecha:</strong> {{ getFormattedDate() }}
+    </div>
+
+    <!-- Mensaje de éxito -->
+    <div *ngIf="success" class="alert alert-success">
+      ✅ Reserva creada exitosamente. El modal se cerrará automáticamente.
+    </div>
+
+    <!-- Mensaje de error -->
+    <div *ngIf="error" class="alert alert-error">
+      {{ error }}
+    </div>
+
+    <!-- Formulario de reserva -->
+    <form (ngSubmit)="createReservation()" *ngIf="!success">
+      <!-- Selección de aula -->
+      <div class="form-group">
+        <label for="room" class="form-label">Aula *</label>
+        <select 
+          id="room" 
+          [(ngModel)]="reservationForm.room" 
+          name="room"
+          class="form-input"
+          required
+        >
+          <option value="">Selecciona un aula</option>
+          <option *ngFor="let room of availableRooms" [value]="room">
+            {{ room }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Hora de inicio -->
+      <div class="form-group">
+        <label for="startTime" class="form-label">Hora de inicio *</label>
+        <select 
+          id="startTime" 
+          [(ngModel)]="reservationForm.startTime" 
+          name="startTime"
+          class="form-input"
+          required
+        >
+          <option value="">Selecciona hora de inicio</option>
+          <option *ngFor="let time of timeSlots" [value]="time">
+            {{ time }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Hora de fin -->
+      <div class="form-group">
+        <label for="endTime" class="form-label">Hora de fin *</label>
+        <select 
+          id="endTime" 
+          [(ngModel)]="reservationForm.endTime" 
+          name="endTime"
+          class="form-input"
+          required
+        >
+          <option value="">Selecciona hora de fin</option>
+          <option *ngFor="let time of timeSlots" [value]="time">
+            {{ time }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Nombre del responsable -->
+      <div class="form-group">
+        <label for="reservedBy" class="form-label">Responsable *</label>
+        <input 
+          type="text" 
+          id="reservedBy" 
+          [(ngModel)]="reservationForm.reservedBy" 
+          name="reservedBy"
+          class="form-input"
+          placeholder="Ingresa tu nombre completo"
+          required
+        >
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="modal-actions">
+        <button 
+          type="button" 
+          class="btn btn-secondary" 
+          (click)="closeModal()"
+          [disabled]="isLoading"
+        >
+          Cancelar
+        </button>
+        <button 
+          type="submit" 
+          class="btn" 
+          [disabled]="isLoading || !isFormValid()"
+        >
+          <span *ngIf="isLoading">Creando...</span>
+          <span *ngIf="!isLoading">Crear Reserva</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Información adicional -->
+    <div class="modal-info">
+      <p><strong>Nota:</strong> Las reservas se validan automáticamente para evitar conflictos de horarios en la misma aula.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+:root {
+  --blanco: #ffffff;
+  --gris-claro: #f5f5f5;
+  --gris-oscuro: #424242;
+  --azul-oscuro: #012146;
+  --azul-claro: #1e3a5f;
+  --texto-principal: #212121;
+  --texto-secundario: #757575;
+  --sombra: rgba(0,0,0,0.1);
+}
+
+/* Body */
+body { background-color: var(--gris-claro); font-family: Arial, sans-serif; margin:0; }
+
+/* Hero */
+.about-hero { color: var(--texto-principal); padding:4rem 0; text-align:center; }
+.about-hero-content h1 { font-size:3rem; margin-bottom:1rem; }
+.about-hero-content p { font-size:1.25rem; opacity:0.9; max-width:600px; margin:0 auto; }
+
+/* Carrusel */
+.carousel-section { position: relative; z-index: -1; }
+.carousel { position: relative; overflow: hidden; max-width:100%; }
+.carousel-track { display:flex; transition: transform 0.5s ease; }
+.carousel-slide { min-width:100%; position: relative; }
+.carousel-slide img { width:100%; height:70vh; object-fit:contain; display:block; margin:0 auto;  user-select: none;      /* No permite seleccionar texto */
+  -webkit-user-drag: none; /* Previene arrastrar la imagen en Chrome/Safari */
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  user-drag: none;
+  pointer-events: none; }
+.carousel-caption { position:absolute; bottom:10%; left:5%; color:var(--blanco); background:rgba(0,0,0,0.5); padding:1rem 1.5rem; border-radius:8px; }
+.carousel-caption h4 { margin:0 0 0.5rem 0; font-size:1.5rem; }
+.carousel-caption p { margin:0; font-size:1rem; }
+
+/* Flechas */
+.carousel-button { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.6); border:none; color:#fff; font-size:1rem; padding:0.5rem 1rem; cursor:pointer; border-radius:50%; z-index:10; transition:0.3s; }
+.carousel-button:hover { background:rgba(0,0,0,0.8); }
+.carousel-button.prev { left:1%; }
+.carousel-button.next { right:1%; }
+
+/* Institución info */
+.institution-info { padding:4rem 0; background-color: var(--blanco); }
+.info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
+.info-card { background-color: var(--gris-claro); padding:2rem; border-radius:12px; box-shadow:0 4px 16px var(--sombra); }
+.info-card h2 { color:var(--azul-oscuro); margin-bottom:1rem; font-size:1.5rem; }
+.info-card p { color:var(--gris-oscuro); line-height:1.6; }
+
+/* Valores */
+.values { padding:4rem 0; }
+.section-title { text-align:center; margin-bottom:3rem; font-size:2.5rem; }
+.values-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+.value-card { background-color:var(--blanco); padding:2rem; border-radius:12px; text-align:center; box-shadow:0 4px 16px var(--sombra); transition:transform 0.3s; }
+.value-card:hover { transform:translateY(-5px); }
+.value-icon { font-size:3rem; margin-bottom:1rem; }
+.value-card h3 { color:var(--azul-oscuro); margin-bottom:1rem; }
+.value-card p { color:var(--gris-oscuro); line-height:1.6; }
+
+/* Profesores */
+.professors-section { padding:4rem 0; }
+.professors-section h2 { text-align:center; margin-bottom:2rem; color:var(--azul-oscuro); }
+.professors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+.professor-card { background-color:var(--blanco); border-radius:12px; padding:1.5rem; box-shadow:0 4px 16px var(--sombra); text-align:center; transition:box-shadow 0.3s; }
+.professor-card:hover { box-shadow:0 8px 25px rgba(0,0,0,0.15); }
+.professor-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:1rem; }
+.professor-photo.placeholder { display:flex; align-items:center; justify-content:center; background:#ccc; color:#666; font-weight:700; font-size:0.9rem; width:120px; height:120px; border-radius:50%; margin:0 auto 1rem; }
+.professor-name { font-size:1.25rem; color:var(--azul-oscuro); margin-bottom:0.25rem; }
+.professor-position { font-weight:600; color:var(--azul-claro); margin-bottom:0.25rem; }
+.professor-career { font-style:italic; font-size:0.9rem; margin-bottom:0.5rem; color:var(--gris-oscuro); }
+.professor-bio { font-size:0.85rem; color:#444; }
+
+/* Responsive */
+@media(max-width:1024px){.about-hero-content h1{font-size:2.5rem}.about-hero-content p{font-size:1.1rem}.carousel-caption{font-size:0.9rem;bottom:5%;left:3%;padding:0.8rem 1rem}}
+@media(max-width:768px){.about-hero{padding:3rem 1rem}.institution-info,.values,.carousel-section,.professors-section{padding:3rem 1rem}.info-grid,.values-grid,.professors-grid{grid-template-columns:1fr;gap:1.5rem}.carousel-button{font-size:2rem;padding:0.4rem 0.8rem}}
+@media(max-width:480px){.about-hero-content h1{font-size:2rem}.about-hero-content p{font-size:1rem}.carousel-caption{font-size:0.85rem;padding:0.5rem 0.8rem}}

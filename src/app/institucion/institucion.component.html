@@ -1,0 +1,58 @@
+<main class="about">
+
+  <!-- Hero -->
+
+
+  <!-- Carrusel -->
+
+  
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-content">
+        <h1>Nuestra Institución</h1>
+        <p>Conoce la historia, misión y valores que nos definen como institución educativa</p>
+      </div>
+    </div>
+  </section>
+  <section class="carousel-section">
+    <div class="carousel">
+      <button class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
+      <div class="carousel-track-container">
+        <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+          <div class="carousel-slide" *ngFor="let image of galleryImages">
+            <img [src]="image.imageUrl" [alt]="image.title" />
+            <div class="carousel-caption">
+              <h4>{{ image.title }}</h4>
+              <p>{{ image.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-button next" (click)="nextSlide()">&#10095;</button>
+    </div>
+  </section>
+  <!-- Historia, Misión, Visión -->
+  <section class="institution-info">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card"><h2>Nuestra Historia</h2><p>{{ institutionData.history }}</p></div>
+        <div class="info-card"><h2>Misión</h2><p>{{ institutionData.mission }}</p></div>
+        <div class="info-card"><h2>Visión</h2><p>{{ institutionData.vision }}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="values">
+    <div class="container">
+      <h2 class="section-title text-center">Nuestros Valores</h2>
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let value of values">
+          <div class="value-icon">{{ value.icon }}</div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
