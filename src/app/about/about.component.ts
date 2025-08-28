@@ -38,11 +38,73 @@ export class AboutComponent {
       career: 'Licenciatura en Administración',
       photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
       bio: 'Experto en finanzas corporativas y gestión estratégica.'
+    },
+    {
+      id: 2,
+      fullName: 'Lic. Carlos Méndez',
+      position: 'Profesor Asociado',
+      career: 'Licenciatura en Administración',
+      photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
+      bio: 'Experto en finanzas corporativas y gestión estratégica.'
+    },
+    {
+      id: 2,
+      fullName: 'Lic. Carlos Méndez',
+      position: 'Profesor Asociado',
+      career: 'Licenciatura en Administración',
+      photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
+      bio: 'Experto en finanzas corporativas y gestión estratégica.'
+    },
+    {
+      id: 2,
+      fullName: 'Lic. Carlos Méndez',
+      position: 'Profesor Asociado',
+      career: 'Licenciatura en Administración',
+      photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
+      bio: 'Experto en finanzas corporativas y gestión estratégica.'
+    },
+    {
+      id: 2,
+      fullName: 'Lic. Carlos Méndez',
+      position: 'Profesor Asociado',
+      career: 'Licenciatura en Administración',
+      photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
+      bio: 'Experto en finanzas corporativas y gestión estratégica.'
+    },
+    {
+      id: 2,
+      fullName: 'Lic. Carlos Méndez',
+      position: 'Profesor Asociado',
+      career: 'Licenciatura en Administración',
+      photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
+      bio: 'Experto en finanzas corporativas y gestión estratégica.'
+    },
+    {
+      id: 2,
+      fullName: 'Lic. Carlos Méndez',
+      position: 'Profesor Asociado',
+      career: 'Licenciatura en Administración',
+      photoUrl: 'assets/images/profesores/carlos-mendez.jpg',
+      bio: 'Experto en finanzas corporativas y gestión estratégica.'
     }
   ];
 
   // Directivos
   directors: Person[] = [
+    {
+      id: 1,
+      fullName: 'Mg. Laura Fernández',
+      position: 'Directora Académica',
+      photoUrl: 'assets/images/directivos/laura-fernandez.jpg',
+      bio: 'Responsable de la planificación y supervisión académica.'
+    },
+    {
+      id: 1,
+      fullName: 'Mg. Laura Fernández',
+      position: 'Directora Académica',
+      photoUrl: 'assets/images/directivos/laura-fernandez.jpg',
+      bio: 'Responsable de la planificación y supervisión académica.'
+    },   
     {
       id: 1,
       fullName: 'Mg. Laura Fernández',
@@ -60,7 +122,29 @@ export class AboutComponent {
       position: 'Secretario Administrativo',
       photoUrl: 'assets/images/personal/juan-perez.jpg',
       bio: 'Encargado de trámites y atención al alumnado.'
-    }
+    },
+    {
+      id: 1,
+      fullName: 'Sr. Juan Pérez',
+      position: 'Secretario Administrativo',
+      photoUrl: 'assets/images/personal/juan-perez.jpg',
+      bio: 'Encargado de trámites y atención al alumnado.'
+    },
+    {
+      id: 1,
+      fullName: 'Sr. Juan Pérez',
+      position: 'Secretario Administrativo',
+      photoUrl: 'assets/images/personal/juan-perez.jpg',
+      bio: 'Encargado de trámites y atención al alumnado.'
+    },
+    {
+      id: 1,
+      fullName: 'Sr. Juan Pérez',
+      position: 'Secretario Administrativo',
+      photoUrl: 'assets/images/personal/juan-perez.jpg',
+      bio: 'Encargado de trámites y atención al alumnado.'
+    },
+
   ];
 
   setTab(tab: 'teachers' | 'directors' | 'staff') {

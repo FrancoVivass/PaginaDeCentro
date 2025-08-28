@@ -1,12 +1,33 @@
+
+
+.ContactosBody {
+  min-height: 100vh;
+
+  overflow: hidden; /* para que el blur no salga del contenedor */
+  z-index: 0;
+}
+
+.ContactosBody::before{
+
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../../assets/images/fondoContactos.png') center center/cover no-repeat;
+  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
+  opacity: 0.7; /* controla la opacidad */
+  z-index: -1;
+  transform: scale(1.1);
+}
+
 .contact {
   min-height: 100vh;
 }
 
 /* Hero Section */
 .contact-hero {
-  background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-claro) 100%);
+padding-top: 20px;
   color: var(--blanco);
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
 }
 
@@ -26,7 +47,7 @@
 /* Layout principal */
 .contact-main {
   padding: 4rem 0;
-  background-color: var(--blanco);
+
 }
 
 .contact-layout {

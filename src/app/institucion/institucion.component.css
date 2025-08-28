@@ -9,11 +9,31 @@
   --sombra: rgba(0,0,0,0.1);
 }
 
-/* Body */
-body { background-color: var(--gris-claro); font-family: Arial, sans-serif; margin:0; }
+
+
+
+.InstitucionBody {
+  min-height: 100vh;
+
+  overflow: hidden; /* para que el blur no salga del contenedor */
+  z-index: 0;
+}
+
+.InstitucionBody::before{
+
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../../assets/images/FondoInstitucion.jpeg') center center/cover no-repeat;
+  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
+  opacity: 0.7; /* controla la opacidad */
+  z-index: -1;
+  transform: scale(1.1);
+}
+
 
 /* Hero */
-.about-hero { color: var(--texto-principal); padding:4rem 0; text-align:center; }
+.about-hero { color: var(--blanco); padding:6rem 0; text-align:center; }
 .about-hero-content h1 { font-size:3rem; margin-bottom:1rem; }
 .about-hero-content p { font-size:1.25rem; opacity:0.9; max-width:600px; margin:0 auto; }
 
@@ -39,7 +59,7 @@ body { background-color: var(--gris-claro); font-family: Arial, sans-serif; marg
 .carousel-button.next { right:1%; }
 
 /* Institución info */
-.institution-info { padding:4rem 0; background-color: var(--blanco); }
+.institution-info { padding:4rem 0;  }
 .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
 .info-card { background-color: var(--gris-claro); padding:2rem; border-radius:12px; box-shadow:0 4px 16px var(--sombra); }
 .info-card h2 { color:var(--azul-oscuro); margin-bottom:1rem; font-size:1.5rem; }

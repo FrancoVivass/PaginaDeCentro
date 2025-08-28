@@ -1,12 +1,32 @@
-.careers {
+
+
+.CarrersBody {
   min-height: 100vh;
+
+  overflow: hidden; /* para que el blur no salga del contenedor */
+  z-index: 0;
 }
+
+.CarrersBody::before{
+
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../../assets/images/FondoCarreras.png') center center/cover no-repeat;
+  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
+  opacity: 0.7; /* controla la opacidad */
+  z-index: -1;
+  transform: scale(1.1);
+}
+
+
+
 
 /* --- Hero Section --- */
 .careers-hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+
   color: var(--color-white);
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
 }
 
@@ -26,7 +46,7 @@
 .search-section {
 
   padding: 2rem 0;
-  background-color: var(--color-gray-light);
+
 }
 
 .search-container {
@@ -59,7 +79,7 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
@@ -70,7 +90,7 @@
 }
 
 .search-clear:hover {
-  background-color: rgba(0,0,0,0.1);
+
 }
 
 .search-info {
@@ -91,7 +111,7 @@
 }
 
 .career-card {
-  background-color: var(--color-white);
+
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
@@ -128,7 +148,7 @@
 }
 
 .day-tag {
-  background-color: var(--color-secondary);
+
   color: var(--color-white);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -202,7 +222,7 @@
   margin-bottom: 1rem;
   font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  background-color: var(--color-white);
+
   border-radius: 8px;
   overflow: hidden;
 }
@@ -216,14 +236,14 @@
 
 .career-detail-table th {
   width: 180px;
-  background-color: var(--color-primary);
+
   color: var(--color-white);
   font-weight: 600;
   user-select: none;
 }
 
 .career-detail-table td {
-  background-color: #fafafa;
+
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
@@ -248,25 +268,25 @@
   border: 1px solid var(--color-gray-light);
   padding: 0.4rem 0.8rem;
   text-align: left;
-  background-color: #f9f9f9;
+
   color: var(--color-text);
 }
 
 .nested-table th {
-  background-color: var(--color-secondary);
+
   color: var(--color-white);
   font-weight: 600;
 }
 
 /* Hover en filas nested-table */
 .nested-table tbody tr:hover {
-  background-color: #e6f0ff;
+
   cursor: default;
 }
 
 /* Botón cerrar detalle */
 .career-detail .btn {
-  background-color: var(--color-primary);
+
   color: var(--color-white);
   border: none;
   padding: 0.6rem 1.2rem;
@@ -278,7 +298,7 @@
 }
 
 .career-detail .btn:hover {
-  background-color: var(--color-secondary);
+
 }
 
 /* Responsive */
