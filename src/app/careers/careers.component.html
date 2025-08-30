@@ -89,65 +89,7 @@
       </div>
 
       <!-- Detalle -->
-      <section *ngIf="selectedCareer" class="career-detail" aria-live="polite">
-        <h2>Detalle de {{ selectedCareer.name }}</h2>
-        
-        <table class="career-detail-table">
-          <tr>
-            <th>Descripción</th>
-            <td>{{ selectedCareer.description }}</td>
-          </tr>
-
-          <tr>
-            <th>Días de cursada</th>
-            <td>{{ selectedCareer.days.join(', ') }}</td>
-          </tr>
-
-          <tr *ngIf="selectedCareer.schedule?.length">
-            <th>Horarios de cursada</th>
-            <td>
-              <table class="nested-table" aria-label="Horarios de cursada">
-                <thead>
-                  <tr>
-                    <th>Día</th>
-                    <th>Hora inicio</th>
-                    <th>Hora fin</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let slot of selectedCareer.schedule">
-                    <td>{{ slot.day }}</td>
-                    <td>{{ slot.startTime }}</td>
-                    <td>{{ slot.endTime }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-
-          <tr *ngIf="selectedCareer.subjects?.length">
-            <th>Materias</th>
-            <td>
-              <table class="nested-table" aria-label="Materias de la carrera">
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let subject of selectedCareer.subjects">
-                    <td>{{ subject.name }}</td>
-                    <td>{{ subject.description || '-' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </table>
-
-        <button class="btn" (click)="clearSelection()">Cerrar</button>
-      </section>
+      
     </div>
   </section>
 </main>

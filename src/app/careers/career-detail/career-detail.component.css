@@ -1,0 +1,249 @@
+.career-detail-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .career-detail-hero {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem 0;
+    color: white;
+  }
+  
+  .career-detail-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .back-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+  
+  .back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-2px);
+  }
+  
+  .career-detail-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .career-detail-content {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .loading-state, .error-state {
+    text-align: center;
+    padding: 3rem 0;
+    color: white;
+  }
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+  }
+  
+  .career-detail-info {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+  }
+  
+  .career-overview {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .career-description h2,
+  .career-days h2,
+  .career-schedule h2,
+  .career-subjects h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+  }
+  
+  .career-description p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  
+  .days-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .day-tag {
+    background: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .career-schedule {
+    margin-bottom: 2rem;
+  }
+  
+  .schedule-table-container {
+    overflow-x: auto;
+  }
+  
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .schedule-table th {
+    background: #667eea;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .schedule-table tr:hover {
+    background: #e9ecef;
+  }
+  
+  .career-subjects {
+    margin-bottom: 2rem;
+  }
+  
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .subject-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+  }
+  
+  .subject-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subject-card h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .subject-card p {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .no-description {
+    font-style: italic;
+    color: #999;
+  }
+  
+  .career-actions {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .btn-primary {
+    background: #667eea;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+  
+  .btn-primary:hover {
+    background: #5a6fd8;
+  }
+  
+  @media (max-width: 768px) {
+    .career-overview {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .career-detail-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .career-detail-info {
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+  
+    .subjects-grid {
+      grid-template-columns: 1fr;
+    }
+  }

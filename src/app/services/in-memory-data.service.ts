@@ -81,8 +81,41 @@ export class InMemoryDataService implements InMemoryDbService {
           { name: 'Gestión Financiera', description: 'Análisis y control financiero' }
         ]
       },
-      // más carreras...
+
+
+      {
+        id: 4,
+        name: 'Ingeniería Industrial',
+        description: 'Formación en optimización de procesos industriales y gestión de la producción.',
+        days: ['Miércoles', 'Viernes'],
+        schedule: [
+          { day: 'Miércoles', startTime: '16:00', endTime: '18:00' },
+          { day: 'Viernes', startTime: '16:00', endTime: '18:00' }
+        ],
+        subjects: [
+          { name: 'Gestión de Operaciones', description: 'Optimización de procesos productivos' },
+          { name: 'Control de Calidad', description: 'Sistemas de gestión de calidad' }
+        ]
+      },
+      {
+        id: 5,
+        name: 'Psicología',
+        description: 'Carrera que estudia el comportamiento humano y los procesos mentales.',
+        days: ['Lunes', 'Martes', 'Miércoles', 'Jueves'],
+        schedule: [
+          { day: 'Lunes', startTime: '18:00', endTime: '20:00' },
+          { day: 'Martes', startTime: '18:00', endTime: '20:00' },
+          { day: 'Miércoles', startTime: '18:00', endTime: '20:00' },
+          { day: 'Jueves', startTime: '18:00', endTime: '20:00' }
+        ],
+        subjects: [
+          { name: 'Psicología General', description: 'Fundamentos de la psicología' },
+          { name: 'Psicología del Desarrollo', description: 'Desarrollo humano a lo largo del ciclo vital' },
+          { name: 'Psicopatología', description: 'Estudio de los trastornos psicológicos' }
+        ]
+      }
     ];
+
     const reservations: Reservation[] = [
       {
         id: 1,

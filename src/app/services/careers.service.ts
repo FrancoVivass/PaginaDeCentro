@@ -14,5 +14,8 @@ export class CareersService {
   getCareers(): Observable<Career[]> {
     return this.http.get<Career[]>(this.apiUrl);
   }
+  getCareerById(id: number): Observable<Career> {
+    return this.http.get<Career>(`${this.apiUrl}/${id}`);
+  }
 }
 

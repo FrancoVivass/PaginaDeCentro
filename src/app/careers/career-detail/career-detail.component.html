@@ -1,0 +1,82 @@
+<main class="career-detail-body">
+  <section class="career-detail-hero">
+    <div class="container">
+      <div class="career-detail-hero-content">
+        <button class="back-button" (click)="goBack()" aria-label="Volver a carreras">
+          ← Volver a Carreras
+        </button>
+        <h1 *ngIf="career">{{ career.name }}</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="career-detail-content">
+    <div class="container">
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Cargando detalles de la carrera...</p>
+      </div>
+
+      <div *ngIf="error && !isLoading" class="error-state">
+        <div class="error-icon">⚠️</div>
+        <p>{{ error }}</p>
+        <button (click)="loadCareer()" class="btn">Reintentar</button>
+      </div>
+
+      <div *ngIf="career && !isLoading && !error" class="career-detail-info">
+        <div class="career-overview">
+          <div class="career-description">
+            <h2>Descripción</h2>
+            <p>{{ career.description }}</p>
+          </div>
+
+          <div class="career-days">
+            <h2>Días de Cursada</h2>
+            <div class="days-container">
+              <span *ngFor="let day of career.days" class="day-tag">
+                {{ day }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="career.schedule?.length" class="career-schedule">
+          <h2>Horarios de Cursada</h2>
+          <div class="schedule-table-container">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Día</th>
+                  <th>Hora de Inicio</th>
+                  <th>Hora de Fin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let slot of career.schedule">
+                  <td>{{ slot.day }}</td>
+                  <td>{{ slot.startTime }}</td>
+                  <td>{{ slot.endTime }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div *ngIf="career.subjects?.length" class="career-subjects">
+          <h2>Materias</h2>
+          <div class="subjects-grid">
+            <div *ngFor="let subject of career.subjects" class="subject-card">
+              <h3>{{ subject.name }}</h3>
+              <p *ngIf="subject.description">{{ subject.description }}</p>
+              <p *ngIf="!subject.description" class="no-description">Sin descripción disponible</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-actions">
+          <button class="btn btn-primary" (click)="goBack()">Volver a Carreras</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

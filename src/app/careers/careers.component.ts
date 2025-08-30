@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Career } from '../models/career.model';
+import { Router } from '@angular/router';
 import { CareersService } from '../services/careers.service';
 
 @Component({
@@ -17,12 +18,14 @@ export class CareersComponent implements OnInit {
   searchTerm = '';
   isLoading = false;
   error = '';
+  selectedCareer: Career | null = null;   // 👈 propiedad agregada
 
-  selectedCareer: Career | null = null;
+  constructor(
+    private careersService: CareersService,
+    private router: Router
+  ) {}
 
-  constructor(private careersService: CareersService) {}
-
-  ngOnInit() {
+  ngOnInit(): void {   // 👈 obligatorio al implementar OnInit
     this.loadCareers();
   }
 
@@ -63,11 +66,7 @@ export class CareersComponent implements OnInit {
   }
 
   selectCareer(career: Career) {
-    this.selectedCareer = career;
-    console.log('Carrera seleccionada:', career);
-  }
-
-  clearSelection() {
-    this.selectedCareer = null;
+    this.selectedCareer = career;   // 👈 guardamos cuál está seleccionada
+    this.router.navigate(['/careers', career.id]);
   }
 }
