@@ -50,7 +50,24 @@ export class InMemoryDataService implements InMemoryDbService {
         subjects: [
           { name: 'Programación I', description: 'Introducción a la programación' },
           { name: 'Estructuras de Datos' },
-          { name: 'Bases de Datos', description: 'Sistemas de gestión de bases de datos' }
+          { name: 'Bases de Datos', description: 'Sistemas de gestión de bases de datos' },
+
+        ]
+
+      },
+      {
+        id: 2,
+        name: 'Licenciatura en Administración',
+        description: 'Formación en gestión y administración de empresas.',
+        days: ['Martes', 'Jueves'],
+        schedule: [
+          { day: 'Martes', startTime: '10:00', endTime: '12:00' },
+          { day: 'Jueves', startTime: '10:00', endTime: '12:00' }
+        ],
+        subjects: [
+          { name: 'Introducción a la Administración' },
+          { name: 'Gestión Financiera', description: 'Análisis y control financiero' },
+          { name: 'Profesores', description: 'Arquitectura de computadoras' }
         ]
       },
       {
@@ -78,7 +95,8 @@ export class InMemoryDataService implements InMemoryDbService {
         ],
         subjects: [
           { name: 'Introducción a la Administración' },
-          { name: 'Gestión Financiera', description: 'Análisis y control financiero' }
+          { name: 'Gestión Financiera', description: 'Análisis y control financiero' },
+          { name: 'Profesores', description: 'Arquitectura de computadoras' }
         ]
       },
 
@@ -94,7 +112,8 @@ export class InMemoryDataService implements InMemoryDbService {
         ],
         subjects: [
           { name: 'Gestión de Operaciones', description: 'Optimización de procesos productivos' },
-          { name: 'Control de Calidad', description: 'Sistemas de gestión de calidad' }
+          { name: 'Control de Calidad', description: 'Sistemas de gestión de calidad' },
+          { name: 'Profesores', description: 'Arquitectura de computadoras' }
         ]
       },
       {
@@ -111,7 +130,8 @@ export class InMemoryDataService implements InMemoryDbService {
         subjects: [
           { name: 'Psicología General', description: 'Fundamentos de la psicología' },
           { name: 'Psicología del Desarrollo', description: 'Desarrollo humano a lo largo del ciclo vital' },
-          { name: 'Psicopatología', description: 'Estudio de los trastornos psicológicos' }
+          { name: 'Psicopatología', description: 'Estudio de los trastornos psicológicos' },
+          { name: 'Profesores', description: 'Arquitectura de computadoras' }
         ]
       }
     ];

@@ -1,14 +1,32 @@
+
 .career-detail-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  }
+  min-height: 100vh;
+
+  overflow: hidden; /* para que el blur no salga del contenedor */
+  z-index: 0;
+}
+
+.career-detail-body::before{
+
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../../../assets/images/FondoCarreras.png') center center/cover no-repeat;
+  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
+  opacity: 0.7; /* controla la opacidad */
+  z-index: -1;
+  transform: scale(1.1);
+}
+
+
+
   
   .career-detail-hero {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 2rem 0;
-    color: white;
+
+    padding: 6rem 0;
+    color: var(--blanco);
   }
-  
+
   .career-detail-hero-content {
     display: flex;
     flex-direction: column;
@@ -33,6 +51,10 @@
   }
   
   .career-detail-hero h1 {
+    justify-content: center;
+    display: flex;
+    font-size: 3rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0;
@@ -40,7 +62,7 @@
   }
   
   .career-detail-content {
-    padding: 3rem 0;
+    padding: 1rem 0;
   }
   
   .container {
@@ -76,24 +98,26 @@
   }
   
   .btn {
-    background: #667eea;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
     font-size: 1rem;
     transition: all 0.3s ease;
     margin-top: 1rem;
   }
   
   .btn:hover {
-    background: #5a6fd8;
+    background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
   }
   
   .career-detail-info {
-    background: white;
+    background: rgba(255, 255, 255, 0.671);
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -111,15 +135,15 @@
   .career-days h2,
   .career-schedule h2,
   .career-subjects h2 {
-    color: #333;
+    color: #000000;
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 2px solid var(--color-principal);
     padding-bottom: 0.5rem;
   }
   
   .career-description p {
-    color: #666;
+    color: #000000;
     line-height: 1.6;
     font-size: 1.1rem;
   }
@@ -131,7 +155,7 @@
   }
   
   .day-tag {
-    background: #667eea;
+    background: var(--color-principal);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -163,7 +187,7 @@
   }
   
   .schedule-table th {
-    background: #667eea;
+    background: var(--color-principal);
     color: white;
     font-weight: 600;
   }
@@ -186,7 +210,7 @@
     background: #f8f9fa;
     border-radius: 12px;
     padding: 1.5rem;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--color-principal);
     transition: all 0.3s ease;
   }
   
@@ -196,13 +220,13 @@
   }
   
   .subject-card h3 {
-    color: #333;
+    color: #000000;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
   }
   
   .subject-card p {
-    color: #666;
+    color: #000000;
     line-height: 1.5;
     margin: 0;
   }
@@ -219,13 +243,21 @@
   }
   
   .btn-primary {
-    background: #667eea;
-    font-size: 1.1rem;
+    background: var(--color-principal);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
     padding: 1rem 2rem;
   }
   
   .btn-primary:hover {
-    background: #5a6fd8;
+    background: #76aadac4;
   }
   
   @media (max-width: 768px) {
@@ -247,3 +279,119 @@
       grid-template-columns: 1fr;
     }
   }
+
+
+  /* ====== Estilos Compartir ====== */
+.btn-secondary {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* Fondo modal */
+.share-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Caja modal */
+.share-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: scaleIn 0.3s ease;
+}
+
+.share-modal h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.share-modal p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.share-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.share-btn {
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.share-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.share-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.share-btn.email {
+  background: #0072c6;
+  color: white;
+}
+
+.share-btn.link {
+  background: #444;
+  color: white;
+}
+
+.close-btn {
+  margin-top: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

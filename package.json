@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "install":"npm install",
+    "install": "npm install",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@emailjs/browser": "^4.4.1",
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "angular-in-memory-web-api": "^0.20.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

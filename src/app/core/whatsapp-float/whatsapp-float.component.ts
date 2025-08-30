@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -35,8 +34,11 @@ export class WhatsappFloatComponent implements OnInit {
   showPulse = false;
   showTooltip = false;
 
+  // Podés reemplazar este número por uno cargado desde backend o environment
+  phoneNumber = '5491112345678';
+  initialMessage = '¡Hola! Me interesa conocer más sobre las carreras disponibles.';
+
   ngOnInit() {
-    // Mostrar animación de bounce después de 3 segundos
     setTimeout(() => {
       this.showBounce = true;
       setTimeout(() => {
@@ -45,27 +47,18 @@ export class WhatsappFloatComponent implements OnInit {
       }, 1000);
     }, 3000);
 
-    // Mostrar tooltip después de 5 segundos si no se ha hecho clic
     setTimeout(() => {
-      if (!this.showTooltip) {
-        this.showTooltip = true;
-      }
+      if (!this.showTooltip) this.showTooltip = true;
     }, 5000);
   }
 
   openWhatsApp() {
     this.showTooltip = false;
     this.showPulse = true;
-    
-    // Número de WhatsApp (cambiar por el número real)
-    const phoneNumber = '5491112345678';
-    const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre las carreras disponibles.');
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
+
+    const whatsappUrl = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(this.initialMessage)}`;
     window.open(whatsappUrl, '_blank');
-    
-    setTimeout(() => {
-      this.showPulse = false;
-    }, 1000);
+
+    setTimeout(() => this.showPulse = false, 1000);
   }
 }

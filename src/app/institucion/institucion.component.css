@@ -89,6 +89,11 @@
 .professor-bio { font-size:0.85rem; color:#444; }
 
 /* Responsive */
-@media(max-width:1024px){.about-hero-content h1{font-size:2.5rem}.about-hero-content p{font-size:1.1rem}.carousel-caption{font-size:0.9rem;bottom:5%;left:3%;padding:0.8rem 1rem}}
+@media(max-width:1024px){
+  .InstitucionBody{
+    padding: 3rem 0;
+  }
+  
+  .about-hero-content h1{font-size:2.5rem}.about-hero-content p{font-size:1.1rem}.carousel-caption{font-size:0.9rem;bottom:5%;left:3%;padding:0.8rem 1rem}}
 @media(max-width:768px){.about-hero{padding:3rem 1rem}.institution-info,.values,.carousel-section,.professors-section{padding:3rem 1rem}.info-grid,.values-grid,.professors-grid{grid-template-columns:1fr;gap:1.5rem}.carousel-button{font-size:2rem;padding:0.4rem 0.8rem}}
 @media(max-width:480px){.about-hero-content h1{font-size:2rem}.about-hero-content p{font-size:1rem}.carousel-caption{font-size:0.85rem;padding:0.5rem 0.8rem}}

@@ -225,7 +225,7 @@ margin-top: -150px;
 /* Responsive */
 @media (max-width: 768px) {
   .hero {
-    padding: 3rem 0;
+    padding: 15rem 0;
   }
   
   .hero-title {

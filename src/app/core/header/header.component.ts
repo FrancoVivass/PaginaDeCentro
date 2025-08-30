@@ -24,6 +24,6 @@ export class HeaderComponent {
    * Cierra el menú móvil
    */
   closeMenu() {
-    this.isMenuOpen = false;
+    this.isMenuOpen = true;
   }
 }

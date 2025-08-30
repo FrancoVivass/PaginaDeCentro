@@ -58,7 +58,7 @@
           *ngFor="let career of filteredCareers" 
           class="career-card"
           (click)="selectCareer(career)"
-          [class.selected]="career === selectedCareer"
+
           type="button"
           role="listitem"
         >
@@ -79,6 +79,7 @@
             </span>
           </div>
         </button>
+        
       </div>
 
       <div *ngIf="!isLoading && !error && filteredCareers.length === 0" class="no-results">

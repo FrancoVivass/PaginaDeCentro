@@ -1,5 +1,6 @@
 /* Variables CSS para modo claro */
 :root {
+  --color-principal:#76aada;
   --logon: url(assets/images/logon.png);
   --logob: url(assets/images/logoB.png);
   --header-text:rgb(0, 0, 0);
