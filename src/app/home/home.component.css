@@ -5,6 +5,14 @@
   z-index: 0;
 }
 
+a:visited {
+  color: inherit; /* evita el violeta */
+}
+a:hover {
+  border-radius: 2px solid black;
+  background-color: black;
+color:white;
+}
 .home::before{
 
   content: "";
@@ -108,13 +116,13 @@ margin-top: -150px;
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--azul-oscuro);
+  color: var(--color-principal);
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
   font-size: 1.125rem;
-  color: var(--azul-oscuro);
+  color: var(--color-principal);
   font-weight: 500;
 }
 
@@ -157,7 +165,7 @@ margin-top: -150px;
 .feature-title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--azul-oscuro);
+  color: var(--color-principal);
 }
 
 .feature-description {
@@ -168,7 +176,7 @@ margin-top: -150px;
 /* CTA Section */
 .cta {
   padding: 4rem 0;
-  background-color: var(--azul-oscuro);
+  background-color: var(--color-principal);
   color: var(--blanco);
 }
 
@@ -200,12 +208,12 @@ margin-top: -150px;
   text-decoration: none;
 }
 .btn-primary {
-  background-color: var(--azul-claro);
+  background-color: var(--color-principal);
   color: var(--blanco);
 }
 
 .btn-primary:hover {
-  background-color: var(--azul-oscuro);
+  background-color: var(--color-principal);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

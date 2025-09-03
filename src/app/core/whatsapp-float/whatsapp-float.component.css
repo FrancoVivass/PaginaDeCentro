@@ -27,7 +27,7 @@
 
 .whatsapp-icon {
   color: white;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .whatsapp-tooltip {
@@ -35,7 +35,7 @@
   right: 80px;
   top: 50%;
   transform: translateY(-50%);
-  background: white;
+  background: rgba(255, 255, 255, 0.555);
   color: #333;
   padding: 12px 16px;
   border-radius: 12px;
@@ -43,7 +43,7 @@
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-  max-width: 200px;
+  max-width: 500px;
   animation: slideInLeft 0.3s ease-out;
 }
 
@@ -118,12 +118,13 @@
     right: 70px;
     font-size: 13px;
     padding: 10px 14px;
-    max-width: 180px;
+    max-width: 500px;
   }
 }
 
 @media (max-width: 480px) {
   .whatsapp-tooltip {
     display: none;
+    max-width: 1000px;
   }
 }
