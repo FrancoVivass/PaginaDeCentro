@@ -16,7 +16,7 @@
             type="text" 
             [(ngModel)]="searchTerm" 
             (input)="filterCareers()"
-            placeholder="Buscar carreras por nombre, descripción o días..."
+            placeholder="Buscar carreras por nombre, descripción, días o profesores..."
             class="search-input"
           >
           <button 
@@ -73,10 +73,33 @@
           
           <p class="career-description">{{ career.description }}</p>
           
+          <div class="career-teachers" *ngIf="getTeachersForCareer(career).length > 0">
+            <h4>Profesores:</h4>
+            <div class="teachers-list">
+              <div *ngFor="let teacher of getTeachersForCareer(career)" class="teacher-item">
+                <div class="teacher-info">
+                  <strong>{{ teacher.fullName }}</strong>
+                  <span class="teacher-position">{{ teacher.position }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div class="career-footer">
             <span class="career-schedule">
               <strong>Días de cursada:</strong> {{ career.days.join(', ') }}
             </span>
+            <div class="career-enrollment" *ngIf="career.enrollment">
+              <span class="enrollment-count">{{ career.enrollment }} alumnos</span>
+            </div>
+            <button 
+              class="career-share-btn" 
+              (click)="openShareModal(career, $event)"
+              aria-label="Compartir carrera"
+              title="Compartir carrera"
+            >
+              <i class="fas fa-share-alt"></i>
+            </button>
           </div>
         </button>
         
@@ -93,4 +116,34 @@
       
     </div>
   </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <app-contact-info></app-contact-info>
+    </div>
+  </section>
 </main>
+
+<!-- Modal de Compartir -->
+<div class="share-overlay" *ngIf="showShareModal" (click)="closeShareModal()">
+  <div class="share-modal" (click)="$event.stopPropagation()">
+    <h3><i class="fas fa-share-alt"></i> Compartir carrera</h3>
+    <p *ngIf="careerToShare">Comparte la carrera "{{ careerToShare.name }}" con otros:</p>
+
+    <div class="share-buttons">
+      <button class="share-btn whatsapp" (click)="shareWhatsApp()">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </button>
+      <button class="share-btn email" (click)="shareEmail()">
+        <i class="fas fa-envelope"></i> Email
+      </button>
+      <button class="share-btn link" (click)="copyLink()">
+        <i class="fas fa-link"></i> Copiar enlace
+      </button>
+    </div>
+
+    <button class="close-btn" (click)="closeShareModal()">
+      <i class="fas fa-times"></i> Cerrar
+    </button>
+  </div>
+</div>

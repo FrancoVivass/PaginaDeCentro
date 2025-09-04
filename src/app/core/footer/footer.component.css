@@ -102,7 +102,7 @@ footer {
   left: 0;
   width: 50px;
   height: 3px;
-  background: var(--color-secundario);
+  background: var(--color-principal);
   border-radius: 2px;
 }
 
@@ -175,7 +175,7 @@ footer {
 }
 
 .social-links a:hover {
-  background: var(--color-secundario);
+  background: var(--color-principal);
   transform: translateY(-2px);
 }
 
@@ -258,8 +258,8 @@ footer {
     transform: translateX(-50%);
   }
   
-  .box__footer .logo img {
-    height: 10rem;
+  .box__footer .logo  {
+    width: 100%;
   }
   
   .box__footer .terms {
@@ -285,6 +285,17 @@ footer {
 }
 
 @media (max-width: 480px) {
+
+  .box__footer .logo {
+width: 100%;
+    background-image: var(--logon);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+  
+    transition: var(--transition);
+  }
   .cover {
     height: 300px;
     margin-top: 10px;
@@ -313,7 +324,7 @@ footer {
   }
   
   .box__footer .logo img {
-    height: 8rem;
+    height: 10rem;
   }
   
   .box__footer h2 {

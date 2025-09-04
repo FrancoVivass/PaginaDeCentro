@@ -16,4 +16,12 @@ export interface Career {
   days: string[];
   schedule?: ScheduleSlot[];
   subjects?: Subject[];
+  teachers?: number[]; // IDs de los profesores asociados a esta carrera
+  duration?: {
+    years: number;
+    semesters: number;
+  };
+  currentSemester?: number;
+  currentYear?: number;
+  enrollment?: number; // Número de alumnos matriculados
 }

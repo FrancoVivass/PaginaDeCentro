@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,8 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isMenuOpen = true;
-
+  isMenuOpen = false;
+  constructor(private router: Router) {}  
   /**
    * Alterna el estado del menú móvil
    */
@@ -24,6 +25,11 @@ export class HeaderComponent {
    * Cierra el menú móvil
    */
   closeMenu() {
-    this.isMenuOpen = true;
+    this.isMenuOpen = false;
+  }
+
+  goHome() {
+    this.closeMenu();
+    this.router.navigate(['/']); // te lleva al inicio
   }
 }

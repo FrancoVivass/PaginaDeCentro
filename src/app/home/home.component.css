@@ -1,18 +1,72 @@
+a:visited {
+  color: inherit; /* evita el violeta */
+}
+
+
+
 .home {
   min-height: 100vh;
 
   overflow: hidden; /* para que el blur no salga del contenedor */
   z-index: 0;
 }
+.colaboracion {
 
-a:visited {
-  color: inherit; /* evita el violeta */
+  text-align: center;
+  padding: 3rem 1rem;
+
 }
-a:hover {
-  border-radius: 2px solid black;
-  background-color: black;
-color:white;
+
+.colaboracion h2 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--black-900);
+  margin-bottom: 2rem;
 }
+
+.colaboracion-logos {
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Logos con background-image */
+.colaboracion-logos a {
+  display: block;
+  width: 300px;
+  height: 160px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 8px;
+}
+
+.colaboracion-logos a:hover {
+
+
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Logos individuales */
+.logo-puentes {
+  background-image: url('../../assets/images/logopuentes.svg');
+}
+
+.logo-municipalidad {
+  background-image: url('../../assets/images/logodolores.png');
+}
+
+
+
+
+
 .home::before{
 
   content: "";
@@ -27,10 +81,9 @@ color:white;
 
 /* Hero Section */
 .hero {
-margin-top: -150px;
-
-  color: black;
-  padding: 30rem 0;
+  padding-bottom: 200px;
+  color: var(--black-900);
+padding-top: 300px;
   text-align: center;
 }
 
@@ -44,18 +97,19 @@ margin-top: -150px;
 
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: black;
+  color:var(--black-900) ;
 }
 
 .hero-subtitle {
   font-style: stroke white 2px;
   font-size: 1.25rem;
   margin-bottom: 2rem;
-  color: black;
+  color: var(--texto-principal);
   line-height: 1.6;
 }
 
 .hero-actions {
+font-size: 5rem;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -219,21 +273,25 @@ margin-top: -150px;
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: var(--color-principal);
   color: var(--blanco);
-  border: 2px solid var(--blanco);
+  border: 2px solid var(--color-principal);
 }
 
 .btn-secondary:hover {
   background-color: var(--blanco);
-  color: var(--azul-oscuro);
+  color: var(--black-900);
   transform: translateY(-2px);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  a:visited {
+    color: inherit; /* evita el violeta */
+  }
+
   .hero {
-    padding: 15rem 0;
+    padding: 25rem 0;
   }
   
   .hero-title {
@@ -272,6 +330,10 @@ margin-top: -150px;
 }
 
 @media (max-width: 480px) {
+  a:visited {
+    color: inherit; /* evita el violeta */
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
   }

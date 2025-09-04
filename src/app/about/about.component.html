@@ -21,7 +21,6 @@
       <!-- Profesores -->
       <div *ngIf="activeTab==='teachers'" class="grid-section">
         <article *ngFor="let teacher of teachers" class="card">
-          <img *ngIf="teacher.photoUrl; else placeholder" [src]="teacher.photoUrl" [alt]="teacher.fullName" class="photo" loading="lazy" />
           <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
           <h3>{{ teacher.fullName }}</h3>
           <p class="position">{{ teacher.position }}</p>

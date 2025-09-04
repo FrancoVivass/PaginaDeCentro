@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Career } from '../../models/career.model';
+import { Teacher } from '../../models/teacher.model';
 import { CareersService } from '../../services/careers.service';
+import { TeachersService } from '../../services/teachers.service';
 
 @Component({
   selector: 'app-career-detail',
@@ -13,6 +15,7 @@ import { CareersService } from '../../services/careers.service';
 })
 export class CareerDetailComponent implements OnInit {
   career: Career | null = null;
+  teachers: Teacher[] = [];
   isLoading = false;
   error = '';
 
@@ -22,11 +25,13 @@ export class CareerDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private careersService: CareersService
+    private careersService: CareersService,
+    private teachersService: TeachersService
   ) {}
 
   ngOnInit() {
     this.loadCareer();
+    this.loadTeachers();
   }
 
   loadCareer() {
@@ -51,6 +56,24 @@ export class CareerDetailComponent implements OnInit {
         console.error('Error loading career details:', err);
       }
     });
+  }
+
+  loadTeachers() {
+    this.teachersService.getTeachers().subscribe({
+      next: (teachers) => {
+        this.teachers = teachers;
+      },
+      error: (err) => {
+        console.error('Error loading teachers:', err);
+      }
+    });
+  }
+
+  getTeachersForCareer(): Teacher[] {
+    if (!this.career?.teachers || !this.teachers.length) {
+      return [];
+    }
+    return this.teachers.filter(teacher => this.career!.teachers!.includes(teacher.id));
   }
 
   goBack() {

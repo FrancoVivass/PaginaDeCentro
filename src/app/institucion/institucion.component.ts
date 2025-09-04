@@ -20,9 +20,9 @@ interface Teacher {
 export class InstitucionComponent {
   // Datos de la institución
   institutionData = {
-    history: 'Fundado en 1995, nuestro Centro Universitario nació con la visión de democratizar la educación superior de calidad. Durante más de 25 años, hemos formado a miles de profesionales que hoy son líderes en sus respectivos campos.',
-    mission: 'Formar profesionales competentes, éticos y comprometidos con el desarrollo social, a través de programas educativos innovadores y un acompañamiento personalizado que garantice la excelencia académica.',
-    vision: 'Ser reconocidos como una institución líder en la formación de profesionales de excelencia, contribuyendo al desarrollo sostenible de la sociedad y al progreso de la humanidad.'
+    history: 'Inaugurado en 2025, el Centro Universitario de Dolores surge con el objetivo de acercar la educación superior a la comunidad y evitar el desarraigo de los jóvenes que debían trasladarse a otras ciudades para continuar sus estudios. Gracias a la recuperación del histórico edificio del Hogar Madrecitas y a la inversión del programa provincial Puentes, el centro se consolidó como un espacio académico inclusivo, con infraestructura moderna y carreras dictadas por universidades nacionales.',
+    mission: 'Brindar acceso a la educación universitaria de calidad en Dolores y la región, formando profesionales competentes y comprometidos con el desarrollo local y regional. Promover la igualdad de oportunidades, la innovación y el arraigo a través de propuestas académicas relevantes y vinculadas a las necesidades de la comunidad.',
+    vision: 'Convertirse en un referente educativo del sudeste bonaerense, reconocido por su excelencia académica, su impacto en el desarrollo territorial y su capacidad de generar conocimiento y profesionales que contribuyan al progreso social, cultural y económico de la región.'
   };
 
   // Valores institucionales
@@ -33,8 +33,8 @@ export class InstitucionComponent {
     { icon: '❤️', title: 'Compromiso Social', description: 'Nos dedicamos a formar profesionales que contribuyan al bienestar de la sociedad' }
   ];
 
-  // Galería de imágenes
-  galleryImages = [
+  // Slider de imágenes
+  sliderImages = [
     { id: 1, title: 'Campus Principal', description: 'Nuestras instalaciones modernas', imageUrl: 'assets/images/centro-universitario3.jpeg' },
     { id: 2, title: 'Formadores', description: 'Centro de recursos académicos', imageUrl: 'assets/images/formadores.jpeg' },
     { id: 3, title: 'Aula de Computo', description: 'Espacios de práctica y experimentación', imageUrl: 'assets/images/Analista.webp' },
@@ -42,15 +42,14 @@ export class InstitucionComponent {
   ];
 
   currentIndex = 0;
-
   isDragging = false;
   startX = 0;
 
-  // Carrusel: avanzar y retroceder
-  nextSlide() { this.currentIndex = (this.currentIndex + 1) % this.galleryImages.length; }
-  prevSlide() { this.currentIndex = (this.currentIndex - 1 + this.galleryImages.length) % this.galleryImages.length; }
+  // Slider: avanzar y retroceder
+  nextSlide() { this.currentIndex = (this.currentIndex + 1) % this.sliderImages.length; }
+  prevSlide() { this.currentIndex = (this.currentIndex - 1 + this.sliderImages.length) % this.sliderImages.length; }
 
-  // Eventos de arrastre con mouse
+  // Drag con mouse
   @HostListener('mousedown', ['$event'])
   onMouseDown(event: MouseEvent) { this.isDragging = true; this.startX = event.clientX; }
 
@@ -65,7 +64,7 @@ export class InstitucionComponent {
   @HostListener('mouseup') onMouseUp() { this.isDragging = false; }
   @HostListener('mouseleave') onMouseLeave() { this.isDragging = false; }
 
-  // Eventos de arrastre táctil
+  // Drag táctil
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent) { this.isDragging = true; this.startX = event.touches[0].clientX; }
 
@@ -79,14 +78,14 @@ export class InstitucionComponent {
 
   @HostListener('touchend') onTouchEnd() { this.isDragging = false; }
 
-  // Lista de profesores
+  // Profesores
   teachers: Teacher[] = [
     { id: 1, fullName: 'Dra. Ana López', position: 'Profesora Titular', career: 'Ingeniería en Sistemas', photoUrl: 'assets/images/profesores/ana-lopez.jpg', bio: 'Especialista en desarrollo de software y arquitecturas distribuidas.' },
     { id: 2, fullName: 'Lic. Carlos Méndez', position: 'Profesor Asociado', career: 'Licenciatura en Administración', photoUrl: 'assets/images/profesores/carlos-mendez.jpg', bio: 'Experto en finanzas corporativas y gestión estratégica.' },
     { id: 3, fullName: 'Dra. Marta Ruiz', position: 'Profesora Titular', career: 'Psicología', photoUrl: 'assets/images/profesores/marta-ruiz.jpg', bio: 'Investigadora en psicología clínica y desarrollo humano.' }
   ];
 
-  // Información de contacto
+  // Contacto
   contactInfo = {
     phone: '+54 11 1234 5678',
     email: 'info@centrouniversitario.edu.ar',

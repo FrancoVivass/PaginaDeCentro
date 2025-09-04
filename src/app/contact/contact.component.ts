@@ -30,15 +30,14 @@ export class ContactComponent {
   // Información de contacto - PERSONALIZA AQUÍ TU EMAIL
   contactInfo = {
     address: 'Buenos Aires 565, Dolores, Buenos Aires, Argentina',
-    phone: '(2245) 432556',
+    phone: '2245 445999',
     // CAMBIA ESTE EMAIL POR EL TUYO:
-    email: 'info@centrouniversitario.edu',
+    email: 'coesdolores@gmail.com',
     // O si quieres agregar más emails:
     additionalEmails: [
-      'info@centrouniversitario.edu',
-      'admision@centrouniversitario.edu'
+      'coesdolores@gmail.com'
     ],
-    hours: 'Lunes a Viernes: 8:00 - 22:00\nSábados: 8:00 - 18:00'
+    hours: 'Lunes a Viernes: 7:00 a 13:00 hs\nMartes a Viernes: 7:00 a 18:00 hs'
   };
 
   constructor(private emailService: EmailService) {}
