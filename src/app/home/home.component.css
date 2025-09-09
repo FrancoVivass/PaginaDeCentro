@@ -2,7 +2,9 @@ a:visited {
   color: inherit; /* evita el violeta */
 }
 
-
+a{
+  color: var(--black-900);
+}
 
 .home {
   min-height: 100vh;
@@ -88,7 +90,7 @@ padding-top: 300px;
 }
 
 .hero-content {
-
+color: var(--black-900);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -109,6 +111,7 @@ padding-top: 300px;
 }
 
 .hero-actions {
+  color: var(--black-900);
 font-size: 5rem;
   display: flex;
   gap: 1rem;
@@ -116,6 +119,8 @@ font-size: 5rem;
   flex-wrap: wrap;
 }
 .hero-actions:hover{
+
+  color: var(--black-900);
   text-decoration: none;
 
 }
@@ -248,6 +253,7 @@ font-size: 5rem;
 
 /* Botones */
 .btn {
+  color: var(--black-900);
   display: inline-block;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
@@ -261,20 +267,11 @@ font-size: 5rem;
 .btn.a::after{
   text-decoration: none;
 }
-.btn-primary {
-  background-color: var(--color-principal);
-  color: var(--blanco);
-}
 
-.btn-primary:hover {
-  background-color: var(--color-principal);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
 .btn-secondary {
   background-color: var(--color-principal);
-  color: var(--blanco);
+  color: var(--black-900);
   border: 2px solid var(--color-principal);
 }
 
@@ -291,7 +288,7 @@ font-size: 5rem;
   }
 
   .hero {
-    padding: 25rem 0;
+    padding: 15rem 0;
   }
   
   .hero-title {

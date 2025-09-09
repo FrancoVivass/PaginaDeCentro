@@ -62,9 +62,8 @@ interface FAQItem {
         </div>
 
         <div class="faq-contact animate-fade-in-up">
-          <p>¿No encontraste lo que buscabas?</p>
-          <button class="btn btn-primary" (click)="contactUs()">
-            Contáctanos
+          <p>¿No encontraste lo que buscabas?</p> <button>
+          <a routerLink="" fragment="#formularios">Ir a Contacto</a>
           </button>
         </div>
       </div>
@@ -153,7 +152,7 @@ export class FaqComponent {
 
   contactUs() {
     // Navegar a la página de contacto
-    window.location.href = '/contact';
+    window.location.href = '#formularios';
   }
 
   trackByFn(index: number, item: FAQItem): string {

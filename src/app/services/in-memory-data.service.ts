@@ -16,7 +16,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Sandra Peralta',
         position: 'Profesora Titular',
         career: 'Licenciatura en Turismo',
-        photoUrl: 'assets/images/profesores/sandra-peralta.jpg',
         bio: 'Especialista en enseñanza de idiomas y turismo internacional.'
       },
       {
@@ -24,7 +23,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Ma. José Abella',
         position: 'Profesora Adjunta',
         career: 'Licenciatura en Turismo',
-        photoUrl: 'assets/images/profesores/maria-jose-abella.jpg',
         bio: 'Adjunta de Inglés II, especializada en práctica de idiomas.'
       },
       {
@@ -32,7 +30,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Alejandra Pereyra',
         position: 'Profesora Titular',
         career: 'Licenciatura en Turismo',
-        photoUrl: 'assets/images/profesores/alejandra-pereyra.jpg',
         bio: 'Especialista en economía del turismo y gestión hotelera.'
       },
       {
@@ -40,7 +37,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Luciana Renzella',
         position: 'Profesora Adjunta',
         career: 'Licenciatura en Turismo',
-        photoUrl: 'assets/images/profesores/luciana-renzella.jpg',
         bio: 'Adjunta de Economía del Turismo II, especializada en práctica.'
       },
       {
@@ -48,7 +44,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Solange Montascero',
         position: 'Profesora Titular',
         career: 'Licenciatura en Turismo',
-        photoUrl: 'assets/images/profesores/solange-montascero.jpg',
         bio: 'Especialista en psicología del turismo y tiempo libre.'
       },
       // Profesores de Gestión de la Educación
@@ -57,7 +52,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Pablo Benítez',
         position: 'Profesor Titular',
         career: 'Licenciatura en Gestión de la Educación',
-        photoUrl: 'assets/images/profesores/pablo-benitez.jpg',
         bio: 'Especialista en administración y gestión de organizaciones educativas.'
       },
       {
@@ -65,7 +59,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Paula Lloyd',
         position: 'Profesora Titular',
         career: 'Licenciatura en Gestión de la Educación',
-        photoUrl: 'assets/images/profesores/paula-lloyd.jpg',
         bio: 'Especialista en gestión del currículum y políticas educativas.'
       },
       {
@@ -73,7 +66,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Mariana Gesualdi',
         position: 'Profesora Titular',
         career: 'Licenciatura en Gestión de la Educación',
-        photoUrl: 'assets/images/profesores/mariana-gesualdi.jpg',
         bio: 'Especialista en transformaciones culturales y educación.'
       },
       {
@@ -81,7 +73,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Mónica Fernández',
         position: 'Profesora Titular',
         career: 'Licenciatura en Gestión de la Educación',
-        photoUrl: 'assets/images/profesores/monica-fernandez.jpg',
         bio: 'Especialista en educación sexual integral y políticas públicas.'
       },
       // Profesores de Producción Agropecuaria
@@ -90,7 +81,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. María Ciancio',
         position: 'Profesora Titular',
         career: 'Producción Agropecuaria',
-        photoUrl: 'assets/images/profesores/maria-ciancio.jpg',
         bio: 'Especialista en enseñanza de idiomas para el sector agropecuario.'
       },
       {
@@ -98,7 +88,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Juan Ignacio Burgueño',
         position: 'Profesor Titular',
         career: 'Producción Agropecuaria',
-        photoUrl: 'assets/images/profesores/juan-ignacio-burgueno.jpg',
         bio: 'Especialista en informática aplicada al sector agropecuario.'
       },
       {
@@ -106,7 +95,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Juan Martín Argel',
         position: 'Profesor Titular',
         career: 'Producción Agropecuaria',
-        photoUrl: 'assets/images/profesores/juan-martin-argel.jpg',
         bio: 'Especialista en producción lechera y ganadería.'
       },
       {
@@ -114,7 +102,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Marcelo Morales',
         position: 'Profesor Titular',
         career: 'Producción Agropecuaria',
-        photoUrl: 'assets/images/profesores/marcelo-morales.jpg',
         bio: 'Especialista en cultivos de avena, cebada y trigo.'
       },
       {
@@ -122,7 +109,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Luis Etchegaray',
         position: 'Profesor Titular',
         career: 'Producción Agropecuaria',
-        photoUrl: 'assets/images/profesores/luis-etchegaray.jpg',
         bio: 'Especialista en cultivos de avena, cebada y trigo.'
       },
       {
@@ -130,7 +116,6 @@ export class InMemoryDataService implements InMemoryDbService {
         fullName: 'Prof. Karina Gira',
         position: 'Profesora Titular',
         career: 'Producción Agropecuaria',
-        photoUrl: 'assets/images/profesores/karina-gira.jpg',
         bio: 'Especialista en invernada bovina y ganadería.'
       }
     ];

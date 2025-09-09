@@ -152,24 +152,10 @@ export class AboutComponent {
   directors: Person[] = [
     {
       id: 1,
-      fullName: 'Mg. Laura Fernández',
-      position: 'Directora Académica',
-      photoUrl: 'assets/images/directivos/laura-fernandez.jpg',
+      fullName: 'Sr. Ramiro Blasi',
+      position: 'Director de Educación en Dolores',
+      photoUrl: '../../assets/images/Blasi.jpg',
       bio: 'Responsable de la planificación y supervisión académica de la sede universitaria.'
-    },
-    {
-      id: 2,
-      fullName: 'Dr. Roberto Martínez',
-      position: 'Director de Coordinación',
-      photoUrl: 'assets/images/directivos/roberto-martinez.jpg',
-      bio: 'Encargado de la coordinación entre las diferentes carreras y la gestión administrativa.'
-    },
-    {
-      id: 3,
-      fullName: 'Lic. María González',
-      position: 'Coordinadora de Carreras',
-      photoUrl: 'assets/images/directivos/maria-gonzalez.jpg',
-      bio: 'Responsable de la coordinación académica de las carreras de Turismo, Gestión de la Educación y Producción Agropecuaria.'
     }
   ];
 
@@ -177,31 +163,21 @@ export class AboutComponent {
   staff: Person[] = [
     {
       id: 1,
-      fullName: 'Sr. Juan Pérez',
-      position: 'Secretario Administrativo',
-      photoUrl: 'assets/images/personal/juan-perez.jpg',
-      bio: 'Encargado de trámites y atención al alumnado. Horario de atención: Lunes a Viernes de 7:00 a 13:00 hs, Martes a Viernes de 7:00 a 18:00 hs.'
+      fullName: 'Sra. Maria Elena Díaz',
+      position: 'Secretaria Administrativa',
+      bio: 'Horario de atención: Lunes a Viernes de 7:00 a 13:00 hs, Martes a Viernes de 7:00 a 18:00 hs.'
     },
     {
       id: 2,
-      fullName: 'Sra. Ana Rodríguez',
-      position: 'Auxiliar Administrativa',
-      photoUrl: 'assets/images/personal/ana-rodriguez.jpg',
-      bio: 'Apoyo en gestión de matrículas y documentación estudiantil.'
+      fullName: 'Sra. Maria Luz Alday',
+      position: 'Secretaria Administrativa',
+      bio: 'Horario de atención: Lunes a Viernes de 7:00 a 13:00 hs, Martes a Viernes de 7:00 a 18:00 hs.'
     },
     {
       id: 3,
-      fullName: 'Sr. Carlos López',
-      position: 'Mantenimiento',
-      photoUrl: 'assets/images/personal/carlos-lopez.jpg',
-      bio: 'Responsable del mantenimiento de las instalaciones y equipamiento de la sede.'
-    },
-    {
-      id: 4,
-      fullName: 'Sra. Patricia Martínez',
-      position: 'Recepción',
-      photoUrl: 'assets/images/personal/patricia-martinez.jpg',
-      bio: 'Atención al público y coordinación de visitas a la institución.'
+      fullName: 'Sra. Mariana Echeto',
+      position: 'Secretaria Administrativa',
+      bio: 'Horario de atención: Lunes a Viernes de 7:00 a 13:00 hs, Martes a Viernes de 7:00 a 18:00 hs.'
     }
   ];
 

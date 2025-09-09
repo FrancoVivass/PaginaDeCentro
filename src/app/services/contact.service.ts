@@ -16,7 +16,7 @@ export interface ContactInfo {
 })
 export class ContactService {
   private contactInfo: ContactInfo = {
-    phone: '2245 445999',
+    phone: '2245 403922',
     email: 'coesdolores@gmail.com',
     officeHours: {
       weekdays: 'Lunes a Viernes: 7:00 a 13:00 hs',

@@ -4,6 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { EmailService, ContactMessage } from '../services/email.service';
 import { FaqComponent } from '../core/faq/faq.component';
 
+interface FAQItem {
+  question: string;
+  answer: string;
+  category: string;
+  isOpen: boolean;
+}
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -12,6 +19,93 @@ import { FaqComponent } from '../core/faq/faq.component';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
+  selectedCategory = 'Todas';
+  categories = ['Todas', 'Inscripciones', 'Carreras', 'Horarios', 'Pagos'];
+
+  faqs: FAQItem[] = [
+    {
+      question: '¿Cuáles son los requisitos para inscribirse?',
+      answer: 'Para inscribirte necesitas: DNI, título secundario (original y copia), 2 fotos 4x4, certificado de buena conducta y pago de matrícula.',
+      category: 'Inscripciones',
+      isOpen: false
+    },
+    {
+      question: '¿Qué carreras ofrecen?',
+      answer: 'Ofrecemos Ingeniería en Sistemas, Licenciatura en Administración, Contador Público, Ingeniería Industrial y Psicología.',
+      category: 'Carreras',
+      isOpen: false
+    },
+    {
+      question: '¿Cuáles son los horarios de cursada?',
+      answer: 'Los horarios varían según la carrera. Generalmente las clases son de lunes a viernes en turnos mañana, tarde y noche.',
+      category: 'Horarios',
+      isOpen: false
+    },
+    {
+      question: '¿Cómo puedo pagar la matrícula?',
+      answer: 'Aceptamos efectivo, transferencia bancaria, tarjetas de crédito y débito. También ofrecemos planes de pago en cuotas.',
+      category: 'Pagos',
+      isOpen: false
+    },
+    {
+      question: '¿Tienen becas disponibles?',
+      answer: 'Sí, ofrecemos becas por excelencia académica, deportiva y para estudiantes de bajos recursos. Consulta en administración.',
+      category: 'Inscripciones',
+      isOpen: false
+    },
+    {
+      question: '¿Los títulos son oficiales?',
+      answer: 'Sí, todos nuestros títulos son oficiales y están reconocidos por el Ministerio de Educación.',
+      category: 'Carreras',
+      isOpen: false
+    },
+    {
+      question: '¿Puedo cambiar de carrera?',
+      answer: 'Sí, puedes solicitar el cambio de carrera durante el primer año. Se evaluarán las materias aprobadas para la equivalencia.',
+      category: 'Inscripciones',
+      isOpen: false
+    },
+    {
+      question: '¿Tienen residencia estudiantil?',
+      answer: 'No contamos con residencia estudiantil, pero te podemos ayudar a encontrar alojamiento cercano al instituto.',
+      category: 'Horarios',
+      isOpen: false
+    }
+  ];
+
+  get filteredFaqs(): FAQItem[] {
+    if (this.selectedCategory === 'Todas') {
+      return this.faqs;
+    }
+    return this.faqs.filter(faq => faq.category === this.selectedCategory);
+  }
+
+  filterByCategory(category: string) {
+    this.selectedCategory = category;
+    // Cerrar todas las preguntas al cambiar categoría
+    this.faqs.forEach(faq => faq.isOpen = false);
+  }
+
+  toggleFaq(item: FAQItem) {
+    // Cerrar otras preguntas si solo queremos una abierta a la vez
+    this.faqs.forEach(faq => {
+      if (faq !== item) {
+        faq.isOpen = false;
+      }
+    });
+    
+    item.isOpen = !item.isOpen;
+  }
+
+  contactUs() {
+    // Navegar a la página de contacto
+    window.location.href = '#formularios';
+  }
+
+  trackByFn(index: number, item: FAQItem): string {
+    return item.question;
+  }
+
   // Formulario de contacto
   contactForm = {
     name: '',

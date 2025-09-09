@@ -35,8 +35,8 @@ export class WhatsappFloatComponent implements OnInit {
   showTooltip = false;
 
   // Podés reemplazar este número por uno cargado desde backend o environment
-  phoneNumber = '5491112345678';
-  initialMessage = '¡Hola! Me interesa conocer más sobre las carreras disponibles.';
+  phoneNumber = '5492245403922';
+  initialMessage = '¡Hola! Me interesa conocer más sobre las carreras disponibles de la univeridad "Centro Universitario". De la localidad de Dolores.';
 
   ngOnInit() {
     setTimeout(() => {

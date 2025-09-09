@@ -39,11 +39,13 @@
   margin: 0 auto;
 }
 .about-container { 
+
   margin-top: -150px ;
   padding: 5rem 1rem; 
   font-family: 'Segoe UI', sans-serif; }
 
-.tabs { display: flex; 
+.tabs {
+  display: flex; 
   justify-content: center;
    margin-bottom: 2rem; 
    gap: 1rem; }
@@ -66,12 +68,16 @@
   background: var(--azul-claro); 
   color: white; }
 
-.grid-section { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); 
-  gap: 2rem; }
-
+  .grid-section {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+    gap: 2rem;
+    justify-content: center; /* 🔹 centra horizontalmente */
+  }
+  
 .card {
+
   background: #fff; 
   padding: 1.5rem; 
   border-radius: 15px; 

@@ -7,7 +7,7 @@
       </div>
     </div>
   </section>
-
+  <div class="barradivisora"></div>
   <section class="search-section">
     <div class="container">
       <div class="search-container">
@@ -39,7 +39,7 @@
       </div>
     </div>
   </section>
-
+  <div class="barradivisora"></div>
   <section class="careers-list">
     <div class="container">
       <div *ngIf="isLoading" class="loading-state">
@@ -65,9 +65,7 @@
           <div class="career-header">
             <h3 class="career-title">{{ career.name }}</h3>
             <div class="career-days">
-              <span *ngFor="let day of career.days" class="day-tag">
-                {{ day }}
-              </span>
+
             </div>
           </div>
           
@@ -116,7 +114,7 @@
       
     </div>
   </section>
-
+  <div class="barradivisora"></div>
   <section class="contact-section">
     <div class="container">
       <app-contact-info></app-contact-info>

@@ -5,9 +5,10 @@
           <h1>Nuestro Personal</h1>
           <p>Conoce a nuestro equipo de profesionales dedicados a brindar excelencia académica y administrativa</p>
         </div>
-        
+        <div class="barradivisora"></div>
       </div>
     </section>
+    
   <div class="about-container">
     <!-- Pestañas -->
     <div class="tabs">
@@ -43,7 +44,7 @@
       <!-- Personal -->
       <div *ngIf="activeTab==='staff'" class="grid-section">
         <article *ngFor="let s of staff" class="card staff-card">
-          <img *ngIf="s.photoUrl; else placeholder" [src]="s.photoUrl" [alt]="s.fullName" class="photo" loading="lazy" />
+
           <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
           <h3>{{ s.fullName }}</h3>
           <p class="position">{{ s.position }}</p>

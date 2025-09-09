@@ -87,8 +87,8 @@ export class InstitucionComponent {
 
   // Contacto
   contactInfo = {
-    phone: '+54 11 1234 5678',
-    email: 'info@centrouniversitario.edu.ar',
-    address: 'Av. Central 1234, Ciudad Autónoma'
+    phone: '+54 2245 403922',
+    email: 'coesdolores@gmail.com',
+    address: 'Av. Buenos Aires 545. Dolores, Buenos Aires, Argentina'
   };
 }
