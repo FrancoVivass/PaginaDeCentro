@@ -1,8 +1,8 @@
 <body>
-  <div class="logo" (click)="goHome()"></div>
+  <div class="logo"   [ngClass]="{ 'scrolled': isScrolled }" (click)="goHome()"></div>
 
 
-<section class="header">
+<section  class="header" [ngClass]="{ 'scrolled': isScrolled }">
     <div class="header-content">
       <!-- Logo y nombre -->
       <div class="espacio">
@@ -66,16 +66,17 @@
 
       <!-- Botón del menú móvil -->
       <button 
-        class="menu-toggle" 
-        (click)="toggleMenu()"
-        [attr.aria-expanded]="isMenuOpen"
-        aria-label="Abrir menú de navegación"
-      >
-
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      class="menu-toggle" 
+      [class.open]="isMenuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Abrir menú de navegación"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
 
     </div>
 </section>

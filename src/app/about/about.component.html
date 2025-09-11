@@ -1,23 +1,25 @@
 <main class="AboutBody">
-    <section class="about-hero">
-      <div class="container">
-        <div class="about-hero-content">
-          <h1>Nuestro Personal</h1>
-          <p>Conoce a nuestro equipo de profesionales dedicados a brindar excelencia académica y administrativa</p>
-        </div>
-        <div class="barradivisora"></div>
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-content">
+        <h1>Nuestro Personal</h1>
+        <p>Conoce a nuestro equipo de profesionales dedicados a brindar excelencia académica y administrativa</p>
       </div>
-    </section>
-    
+      <div class="barradivisora"></div>
+    </div>
+  </section>
+
+  <!-- CONTENEDOR -->
   <div class="about-container">
-    <!-- Pestañas -->
+    <!-- PESTAÑAS -->
     <div class="tabs">
       <button (click)="setTab('teachers')" [class.active]="activeTab==='teachers'">Profesores</button>
       <button (click)="setTab('directors')" [class.active]="activeTab==='directors'">Directivos</button>
       <button (click)="setTab('staff')" [class.active]="activeTab==='staff'">Personal</button>
     </div>
-  
-    <!-- Contenido -->
+
+    <!-- CONTENIDO -->
     <div class="tab-content">
       <!-- Profesores -->
       <div *ngIf="activeTab==='teachers'" class="grid-section">
@@ -29,7 +31,7 @@
           <p class="bio" *ngIf="teacher.bio">{{ teacher.bio }}</p>
         </article>
       </div>
-  
+
       <!-- Directivos -->
       <div *ngIf="activeTab==='directors'" class="grid-section">
         <article *ngFor="let director of directors" class="card director-card">
@@ -40,11 +42,10 @@
           <p class="bio" *ngIf="director.bio">{{ director.bio }}</p>
         </article>
       </div>
-  
+
       <!-- Personal -->
       <div *ngIf="activeTab==='staff'" class="grid-section">
         <article *ngFor="let s of staff" class="card staff-card">
-
           <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
           <h3>{{ s.fullName }}</h3>
           <p class="position">{{ s.position }}</p>

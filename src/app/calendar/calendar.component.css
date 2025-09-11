@@ -1,95 +1,115 @@
-/* Variables de color (puedes definirlas en :root para usarlas globalment
-/* Container general */
+/* ========================================
+   VARIABLES (definibles en :root para global)
+======================================== */
+/* :root {
+  --blanco: #fff;
+  --gris: #ccc;
+  --negro: #000;
+  --color-principal: #f7b500;
+} */
+
+/* ========================================
+   CONTAINER GENERAL
+======================================== */
 .CalendarBody {
   min-height: 100vh;
-
-  overflow: hidden; /* para que el blur no salga del contenedor */
+  overflow: hidden; /* evita que el blur se salga del contenedor */
   z-index: 0;
 }
 
-
-.CalendarBody::before{
-
+.CalendarBody::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: url('../../assets/images/FondoReservas.png') center center/cover no-repeat;
-  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
-  opacity: 0.7; /* controla la opacidad */
+  filter: blur(1px) brightness(0.3);
+  opacity: 0.7;
   z-index: -1;
   transform: scale(1.1);
 }
 
+/* ========================================
+   HERO / CABECERA
+======================================== */
 .container {
-
-    color: var(--blanco);
-    padding: 6rem 0 0 0;
-    text-align: center;
-  }
-  
-  .container h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--blanco);
-  }
-  
-  .container p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-
-  .calendar-container {
-    border-radius: 15px;
-    background-color: var(--blanco);
-    width: 90%;       /* Ajusta el ancho del fondo */
-    max-width: 1500px;
-    max-height: 1000px; /* Opcional: limitar tamaño máximo */
-    padding: 10px;    /* Espacio entre el iframe y el borde del fondo */
-    margin: 0 auto;   /* Centrar el contenedor */
-    overflow: hidden;
+  color: var(--blanco);
+  padding: 6rem 0 0 0;
+  text-align: center;
 }
-  
-  .calendar-container iframe {
-    background-color: var(--blanco) !important;
-    width: 100%;
-    height: 1500px; /* ajustá según el contenido */
-    border: none;
 
-  }
-  
-/* Hero Section */
+.container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--blanco);
+}
 
-/* Responsive */
+.container p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   CALENDAR CONTAINER
+======================================== */
+.calendar-container {
+  border-radius: 15px;
+  background-color: var(--blanco);
+  width: 90%;
+  max-width: 1500px;
+  max-height: 1000px;
+  padding: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.calendar-container iframe {
+  background-color: var(--blanco) !important;
+  width: 100%;
+  height: 1500px; /* ajustá según el contenido */
+  border: none;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
 @media (max-width: 900px) {
 
-  .calendar-container{
-    height: 100%;
-  }
-
-  .calendar-container iframe{
-    height: 100%;
-  }
-
-  .CalendarBody{
+  .CalendarBody {
     padding: 6rem 0;
   }
+
+  .calendar-container {
+    width: 100%;
+    height: 100vh; /* ocupa toda la pantalla */
+  }
+
+  .calendar-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   .calendar-controls {
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
   }
+
   .current-month {
     text-align: center;
   }
+
   .reservation-item {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .reservation-details {
     align-items: flex-start;
   }
+
   .calendar-day {
     min-height: 70px;
   }
@@ -99,17 +119,6 @@
     margin: 0 auto;
     padding: 0 1rem;
   }
-  
-  .calendar-container {
-    width: 100%;
-    height: 100vh; /* Ocupa toda la pantalla */
-  }
-  
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -118,8 +127,5 @@
   }
   .calendar-hero-content p {
     font-size: 1rem;
-  }
-  .calendar-controls {
-    padding: 1rem;
   }
 }

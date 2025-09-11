@@ -2,6 +2,7 @@
 
   <main class="about">
 
+    <!-- Hero -->
     <section class="about-hero">
       <div class="container">
         <div class="about-hero-content">
@@ -10,7 +11,10 @@
         </div>
       </div>
     </section>
+
     <div class="barradivisora"></div>
+
+    <!-- Carrousel 3D existente -->
     <section class="contaninercarrouselpadding">
       <div class="containercarrousel">
         <div class="carrousel">
@@ -19,24 +23,28 @@
           <div class="carrousel_item"></div>
           <div class="carrousel_item"></div>
           <div class="carrousel_item"></div>
-
-
-      </div>
+        </div>
       </div>
     </section>
 
-    
-
-    <!-- Bloque anti en lugar del carrusel -->
-   
     <div class="barradivisora"></div>
+
     <!-- Historia, Misión, Visión -->
     <section class="institution-info">
       <div class="container">
         <div class="info-grid">
-          <div class="info-card"><h2>Nuestra Historia</h2><p>{{ institutionData.history }}</p></div>
-          <div class="info-card"><h2>Misión</h2><p>{{ institutionData.mission }}</p></div>
-          <div class="info-card"><h2>Visión</h2><p>{{ institutionData.vision }}</p></div>
+          <div class="info-card">
+            <h2>Nuestra Historia</h2>
+            <p>{{ institutionData.history }}</p>
+          </div>
+          <div class="info-card">
+            <h2>Misión</h2>
+            <p>{{ institutionData.mission }}</p>
+          </div>
+          <div class="info-card">
+            <h2>Visión</h2>
+            <p>{{ institutionData.vision }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -54,10 +62,25 @@
         </div>
       </div>
     </section>
-    <div class="barradivisora"></div>
-    <section class="institucion-slider">
 
+    <div class="barradivisora"></div>
+
+    <!-- Slider Institución -->
+    <section class="institucion-slider">
+      <div class="slider-container">
+        <div class="slide" *ngFor="let slide of sliderImages; let i = index" [class.active]="i === currentIndex">
+          <img [src]="slide.imageUrl" [alt]="slide.title">
+          <div class="caption">
+            <h3>{{ slide.title }}</h3>
+            <p>{{ slide.description }}</p>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <button class="prev" (click)="prevSlide()">&#10094;</button>
+        <button class="next" (click)="nextSlide()">&#10095;</button>
+      </div>
     </section>
-    
+
   </main>
-  </main>
+</main>

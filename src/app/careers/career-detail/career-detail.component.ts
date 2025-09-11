@@ -94,11 +94,14 @@ export class CareerDetailComponent implements OnInit {
   }
 
   shareWhatsApp() {
-    const url = encodeURIComponent(this.getCurrentUrl());
-    const text = encodeURIComponent(`Mira esta carrera: ${this.career?.name} - ${url}`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    const url = this.getCurrentUrl(); // NO encodeURIComponent aquí
+    const text = `Mira esta carrera: ${this.career?.name} - ${url}`;
+    const encodedText = encodeURIComponent(text); // Solo codificar una vez
+    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
   }
+  
 
+  
   shareEmail() {
     const subject = encodeURIComponent(`Te comparto la carrera: ${this.career?.name}`);
     const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCurrentUrl()}`);

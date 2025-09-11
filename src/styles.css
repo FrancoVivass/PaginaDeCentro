@@ -99,6 +99,12 @@ body {
 
 }
 
+
+.titulo{
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color:var(--blanco) ;
+}
 /* Tipografía */
 h1, h2, h3, h4, h5, h6 {
 
@@ -343,7 +349,9 @@ a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-
+  .titulo {
+    font-size: 2.5rem;
+  }
 
   .body{
     padding-top: 20px;

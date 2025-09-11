@@ -154,7 +154,7 @@ export class AboutComponent {
       id: 1,
       fullName: 'Sr. Ramiro Blasi',
       position: 'Director de Educación en Dolores',
-      photoUrl: '../../assets/images/Blasi.jpg',
+      photoUrl: 'assets/images/Blasi.jpg',
       bio: 'Responsable de la planificación y supervisión académica de la sede universitaria.'
     }
   ];

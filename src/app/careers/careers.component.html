@@ -64,8 +64,8 @@
         >
           <div class="career-header">
             <h3 class="career-title">{{ career.name }}</h3>
+            
             <div class="career-days">
-
             </div>
           </div>
           
@@ -87,9 +87,6 @@
             <span class="career-schedule">
               <strong>Días de cursada:</strong> {{ career.days.join(', ') }}
             </span>
-            <div class="career-enrollment" *ngIf="career.enrollment">
-              <span class="enrollment-count">{{ career.enrollment }} alumnos</span>
-            </div>
             <button 
               class="career-share-btn" 
               (click)="openShareModal(career, $event)"

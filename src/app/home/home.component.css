@@ -6,11 +6,26 @@ a{
   color: var(--black-900);
 }
 
+
+
 .home {
   min-height: 100vh;
 
   overflow: hidden; /* para que el blur no salga del contenedor */
   z-index: 0;
+}
+
+
+.home::before{
+
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../../assets/images/video.gif') center center/cover no-repeat;
+  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
+  opacity: 0.7; /* controla la opacidad */
+  z-index: -1;
+  transform: scale(1.1);
 }
 .colaboracion {
 
@@ -69,17 +84,6 @@ a{
 
 
 
-.home::before{
-
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('../../assets/images/video.gif') center center/cover no-repeat;
-  filter: blur(1px) brightness(0.3) ; /* blur para desenfoque, brightness para opacidad */
-  opacity: 0.7; /* controla la opacidad */
-  z-index: -1;
-  transform: scale(1.1);
-}
 
 /* Hero Section */
 .hero {
@@ -95,12 +99,7 @@ color: var(--black-900);
   margin: 0 auto;
 }
 
-.hero-title {
 
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color:var(--black-900) ;
-}
 
 .hero-subtitle {
   font-style: stroke white 2px;
@@ -291,9 +290,7 @@ font-size: 5rem;
     padding: 15rem 0;
   }
   
-  .hero-title {
-    font-size: 2.5rem;
-  }
+
   
   .hero-subtitle {
     font-size: 1.1rem;

@@ -14,6 +14,7 @@ export interface Career {
   name: string;
   description: string;
   days: string[];
+  photoUrl?: string;
   schedule?: ScheduleSlot[];
   subjects?: Subject[];
   teachers?: number[]; // IDs de los profesores asociados a esta carrera

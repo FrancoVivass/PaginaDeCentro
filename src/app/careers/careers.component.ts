@@ -8,6 +8,7 @@ import { CareersService } from '../services/careers.service';
 import { TeachersService } from '../services/teachers.service';
 import { ContactInfoComponent } from '../components/contact-info.component';
 
+
 @Component({
   selector: 'app-careers',
   standalone: true,
@@ -121,10 +122,12 @@ export class CareersComponent implements OnInit {
 
   shareWhatsApp() {
     if (!this.careerToShare) return;
-    const url = encodeURIComponent(this.getCareerUrl(this.careerToShare));
-    const text = encodeURIComponent(`Mira esta carrera: ${this.careerToShare.name} - ${url}`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+  
+    const url = this.getCareerUrl(this.careerToShare); // URL limpia
+    const text = `Mira esta carrera: ${this.careerToShare.name} - ${url}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   }
+  
 
   shareEmail() {
     if (!this.careerToShare) return;

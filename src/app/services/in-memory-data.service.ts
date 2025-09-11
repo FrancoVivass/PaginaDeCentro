@@ -4,6 +4,8 @@ import { Career } from '../models/career.model';
 import { Teacher } from '../models/teacher.model'
 import { Reservation } from '../models/reservation.model';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -123,6 +125,7 @@ export class InMemoryDataService implements InMemoryDbService {
     const careers: Career[] = [
       {
         id: 1,
+        photoUrl: 'assets/images/Blasi.jpg',
         name: 'Licenciatura en Turismo (UNLP)',
         description: 'Carrera orientada a la gestión turística, hotelería y servicios turísticos internacionales.',
         days: ['Miércoles', 'Jueves', 'Viernes'],
@@ -145,6 +148,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
+        photoUrl: '',
         name: 'Licenciatura en Gestión de la Educación (UNAJ)',
         description: 'Carrera abocada a docentes recibidos, especializada en gestión y administración educativa.',
         days: ['Sábados'],
@@ -165,6 +169,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 3,
+        photoUrl: '',
         name: 'Producción Agropecuaria (UNLP)',
         description: 'Carrera técnica orientada a la producción y gestión de empresas agropecuarias.',
         days: ['Lunes', 'Miércoles', 'Viernes'],
