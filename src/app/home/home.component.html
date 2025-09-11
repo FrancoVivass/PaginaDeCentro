@@ -1,30 +1,34 @@
 <main class="home">
 
   <section class="hero">
+    <!-- Video de fondo -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/images/Img 6759(1).webm" type="video/mp4">
+      Tu navegador no soporta videos en HTML5.
+    </video>
 
-      <div class="hero-content">
-        <h1 class="titulo">{{ heroTitle }}</h1>
-        <p class="hero-subtitle">{{ heroSubtitle }}</p>
+    <div class="hero-content">
+      <h1 class="titulo">{{ heroTitle }}</h1>
+      <p class="hero-subtitle">{{ heroSubtitle }}</p>
 
-        <div class="hero-actions">
-          <a routerLink="/careers" class="btn btn-secondary">Ver Carreras</a>
-          <a routerLink="/institucion" class="btn btn-secondary" >Más Informacion</a>
-          <a routerLink="/contact" class="btn btn-secondary ">Contactanos</a>
-          <a routerLink="/reservar" class="btn btn-secondary">Reservar Aula</a>
-        </div>
-
+      <div class="hero-actions">
+        <a routerLink="/careers" class="btn btn-secondary">Ver Carreras</a>
+        <a routerLink="/institucion" class="btn btn-secondary">Más Informacion</a>
+        <a routerLink="/contact" class="btn btn-secondary">Contactanos</a>
+        <a routerLink="/reservar" class="btn btn-secondary">Reservar Aula</a>
       </div>
-      <div class="barradivisora"></div>
+    </div>
+
+    <div class="barradivisora"></div>
   </section>
 
   <section class="colaboracion">
-
     <div class="colaboracion-logos">
       <a href="https://puentes.gba.gob.ar/" target="_blank" rel="noopener noreferrer" class="logo-puentes" aria-label="Programa Puentes"></a>
       <a href="https://dolores.gob.ar" target="_blank" rel="noopener noreferrer" class="logo-municipalidad" aria-label="Municipalidad de Dolores"></a>
     </div>
   </section>
-  <div class="barradivisora"></div>
 
+  <div class="barradivisora"></div>
 
 </main>

@@ -106,41 +106,49 @@ export class CareersComponent implements OnInit {
     this.careerToShare = career;
     this.showShareModal = true;
   }
-
+  
   closeShareModal() {
     this.showShareModal = false;
     this.careerToShare = null;
   }
-
-  getCurrentUrl(): string {
-    return window.location.href;
+  
+  // Devuelve la URL actual de la página (para compartir correctamente)
+  getCareerShareUrl(): string {
+    if (!this.careerToShare) return window.location.href;
+  
+    // Tomamos la URL actual
+    const currentUrl = window.location.href;
+  
+    // Obtenemos la parte base hasta "/careers"
+    const index = currentUrl.indexOf('/careers');
+    const baseUrl = index !== -1 ? currentUrl.slice(0, index) : currentUrl;
+  
+    // Retornamos la URL completa con el ID de la carrera
+    return `${baseUrl}/careers/${this.careerToShare.id}`;
   }
-
-  getCareerUrl(career: Career): string {
-    return `${window.location.origin}/careers/${career.id}`;
-  }
-
+  
+  
+  // WhatsApp
   shareWhatsApp() {
     if (!this.careerToShare) return;
-  
-    const url = this.getCareerUrl(this.careerToShare); // URL limpia
+    const url = this.getCareerShareUrl();
     const text = `Mira esta carrera: ${this.careerToShare.name} - ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   }
   
-
   shareEmail() {
     if (!this.careerToShare) return;
     const subject = encodeURIComponent(`Te comparto la carrera: ${this.careerToShare.name}`);
-    const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCareerUrl(this.careerToShare)}`);
+    const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCareerShareUrl()}`);
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   }
-
+  
   copyLink() {
     if (!this.careerToShare) return;
-    const url = this.getCareerUrl(this.careerToShare);
+    const url = this.getCareerShareUrl();
     navigator.clipboard.writeText(url).then(() => {
       alert('¡Enlace copiado al portapapeles!');
     });
   }
+  
 }
