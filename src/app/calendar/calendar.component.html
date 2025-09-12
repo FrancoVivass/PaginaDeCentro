@@ -1,18 +1,74 @@
-
-
 <main class="CalendarBody">
-<section class="calendar-hero">
-  <div class="container">
-    <div class="calendar-hero-content">
+
+  <!-- Hero -->
+  <section class="calendar-hero">
+    <div class="container">
       <h1>Calendario de Reservas</h1>
       <p>Gestiona y reserva aulas para tus actividades académicas</p>
       <div class="barradivisora"></div>
     </div>
+  </section>
+
+  <!-- Botones de control -->
+
+  <div class="tabs">
+    <button (click)="setTab('reservar')" [class.active]="activeTab==='reservar'">Reservar</button>
+    <button (click)="setTab('guia')" [class.active]="activeTab==='guia'">Guía de Reserva</button>
+    <button (click)="setTab('politica')" [class.active]="activeTab==='politica'">Política de Reserva</button>
   </div>
-</section>
-<div class="calendar-container">
-  <iframe 
-  src="https://meet.brevo.com/reservarauladolores/reserva" 
-  title="Calendario de Reservas"></iframe>
-</div>
-</main>
+  <!-- Secciones -->
+  <section *ngIf="activeTab==='reservar'">
+    <div class="calendar-container">
+      <iframe 
+        src="https://meet.brevo.com/reservarauladolores/reserva" 
+        title="Calendario de Reservas"
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <article *ngIf="activeTab==='guia'" class="info-card">
+    <header class="info-card__header">
+      <i class='bx bx-book-open info-card__icon'></i>
+      <h2 class="info-card__title">Guía para Reservas</h2>
+    </header>
+    <ul class="info-card__list">
+      <li>
+        <i class='bx bx-mobile-alt'></i>
+        <span>Las solicitudes se realizan en cualquier momento a través de la <strong>app oficial</strong>.</span>
+      </li>
+      <li>
+        <i class='bx bx-time-five'></i>
+        <span>Cada aula puede reservarse por un máximo de <strong>1 hora</strong>. Para más tiempo, realiza una nueva reserva.</span>
+      </li>
+      <li>
+        <i class='bx bx-detail'></i>
+        <span>Completa el formulario con <strong>día, hora y cantidad de personas</strong> (máximo 30).</span>
+      </li>
+    </ul>
+  </article>
+
+  <article *ngIf="activeTab==='politica'" class="info-card">
+    <header class="info-card__header">
+      <i class='bx bx-shield-quarter info-card__icon'></i>
+      <h2 class="info-card__title">Política de Uso</h2>
+    </header>
+    <ul class="info-card__list">
+      <li>
+        <i class='bx bx-trash'></i>
+        <span>Mantén el aula <strong>limpia y ordenada</strong> al finalizar.</span>
+      </li>
+      <li>
+        <i class='bx bx-calendar-check'></i>
+        <span>Respeta los <strong>horarios de inicio y fin</strong> de tu reserva.</span>
+      </li>
+      <li>
+        <i class='bx bx-error-circle'></i>
+        <span>No modifiques la disposición del mobiliario sin autorización.</span>
+      </li>
+       <li>
+        <i class='bx bx-wrench'></i>
+        <span>Reporta cualquier <strong>daño o problema</strong> al área encargada de inmediato.</span>
+      </li>
+    </ul>
+  </article>

@@ -1,5 +1,6 @@
 /* Variables CSS para modo claro */
 :root {
+  --sombra-card: rgba(0, 0, 0, 0.3);
   --color-principal:#a8cfd3;
   --color-secundario:#1693a5;
   --logon: url(assets/images/logon.png);

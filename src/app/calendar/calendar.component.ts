@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReservationsService } from '../services/reservations.service';
-import { Reservation } from '../models/reservation.model';
-
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports: [CommonModule,],
+  imports: [CommonModule],
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css'] // corregí styleUrl a styleUrls
+  styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent {
-  
+  // Pestaña activa por defecto
+  activeTab: 'reservar' | 'guia' | 'politica' = 'reservar';
 
+  // Cambiar pestaña activa
+  setTab(tab: 'reservar' | 'guia' | 'politica') {
+    this.activeTab = tab;
+  }
 }

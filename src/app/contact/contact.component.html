@@ -1,195 +1,139 @@
-<!-- Hero Section -->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-<main class="ContactosBody">
-
-<section class="contact-hero">
-  <div class="container">
-    <div class="contact-hero-content">
+<main class="contact-page">
+  <section class="contact-hero">
+    <div class="container">
       <h1>Contáctanos</h1>
-      <p>Estamos aquí para ayudarte. Envíanos tu mensaje y te responderemos lo antes posible.</p>
+      <p>Estamos aquí para ayudarte. Completa el formulario y nuestro equipo te responderá a la brevedad.</p>
     </div>
-  </div>
-</section> 
-<div class="barradivisora"></div>
-<!-- Contenido principal -->
-<section id="formularios" class="contact-main">
-  <div class="container">
-    <div class="contact-layout">
-      <!-- Formulario de contacto -->
-      <div class="contact-form-section">
-        <h2>Envíanos un mensaje</h2>
-        
-        <!-- Información del envío -->
-        <div class="form-info">
-          <p class="form-description">
-            Tu mensaje será enviado directamente a secretaria
-          </p>
-        </div>
-        
-        <!-- Mensaje de éxito -->
+  </section>
+
+  <section class="contact-content">
+    <div class="container contact-layout">
+      
+      <article class="contact-card form-card">
+        <header class="card-header">
+          <i class='bx bxs-envelope'></i>
+          <h2>Envíanos un Mensaje</h2>
+        </header>
+
         <div *ngIf="showSuccess" class="alert alert-success">
-          <span>✅</span>
+          <i class='bx bxs-check-circle'></i>
           <div class="alert-content">
-            <p class="alert-title">¡Mensaje enviado exitosamente!</p>
-            <p class="alert-message">{{ successMessage }}</p>
+            <strong>¡Enviado con éxito!</strong>
+            <p>{{ successMessage }}</p>
           </div>
-          <button class="alert-close" (click)="closeSuccess()">×</button>
+          <button class="alert-close" (click)="closeSuccess()" title="Cerrar">&times;</button>
         </div>
-
-        <!-- Mensaje de error -->
+        
         <div *ngIf="showError" class="alert alert-error">
-          <span>⚠️</span>
+          <i class='bx bxs-error-circle'></i>
           <div class="alert-content">
-            <p class="alert-title">Error al enviar el mensaje</p>
-            <p class="alert-message">{{ errorMessage }}</p>
+            <strong>Error al enviar</strong>
+            <p>{{ errorMessage }}</p>
           </div>
-          <button class="alert-close" (click)="closeError()">×</button>
+          <button class="alert-close" (click)="closeError()" title="Cerrar">&times;</button>
         </div>
 
-        <form (ngSubmit)="submitForm()" class="contact-form">
-          <!-- Nombre -->
+        <form [formGroup]="contactForm" (ngSubmit)="submitForm()" novalidate>
           <div class="form-group">
-            <label for="name" class="form-label">Nombre completo *</label>
-            <input 
-              type="text" 
-              id="name" 
-              [(ngModel)]="contactForm.name" 
-              name="name"
-              class="form-input"
-              placeholder="Ingresa tu nombre completo"
-              required
-            >
+            <label for="name">Nombre completo</label>
+            <input id="name" type="text" formControlName="name" placeholder="Ej: Juan Pérez" class="form-input">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="form-error">
+              <small *ngIf="name?.errors?.['required']">El nombre es requerido.</small>
+            </div>
           </div>
 
-          <!-- Email -->
           <div class="form-group">
-            <label for="email" class="form-label">Tu email *</label>
-            <input 
-              type="email" 
-              id="email" 
-              [(ngModel)]="contactForm.email" 
-              name="email"
-              class="form-input"
-              placeholder="tu@email.com"
-              required
-            >
-            <small class="form-help">Usaremos este email para responderte</small>
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" formControlName="email" placeholder="tu@correo.com" class="form-input">
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="form-error">
+              <small *ngIf="email?.errors?.['required']">El email es requerido.</small>
+              <small *ngIf="email?.errors?.['email']">Ingresa un email válido.</small>
+            </div>
           </div>
-
-                    <div class="form-group">
-            <label for="phone" class="form-label">Tu número de telefono *</label>
-            <input 
-              type="tel" 
-              id="phone" 
-              [(ngModel)]="contactForm.phone" 
-              name="phone"
-              class="form-input"
-              placeholder="Tu Teléfono"
-              required
-            >
-            <small class="form-help">Usaremos este Número para responderte</small>
-          </div>
-
-
-          <!-- Mensaje -->
+          
           <div class="form-group">
-            <label for="message" class="form-label">Mensaje *</label>
-            <textarea 
-              id="message" 
-              [(ngModel)]="contactForm.message" 
-              name="message"
-              class="form-input"
-              rows="5"
-              placeholder="Escribe tu mensaje aquí..."
-              required
-            ></textarea>
-            <small class="form-help">Mínimo 10 caracteres</small>
+            <label for="phone">Teléfono (Opcional)</label>
+            <input id="phone" type="tel" formControlName="phone" placeholder="Ej: 2245 123456" class="form-input">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Tu mensaje</label>
+            <textarea id="message" formControlName="message" rows="5" placeholder="Escribe tu consulta aquí..." class="form-input"></textarea>
+            <div *ngIf="message?.invalid && (message?.dirty || message?.touched)" class="form-error">
+              <small *ngIf="message?.errors?.['required']">El mensaje no puede estar vacío.</small>
+              <small *ngIf="message?.errors?.['minlength']">El mensaje debe tener al menos 10 caracteres.</small>
+            </div>
           </div>
 
-          <!-- Botón de envío -->
-          <button 
-            type="submit" 
-            class="btn btn-primary"
-            [disabled]="isSubmitting"
-          >
-            <span *ngIf="isSubmitting" class="loading-text">
-              <span class="loading-spinner"></span>
-              Enviando mensaje...
+          <button type="submit" class="btn" [disabled]="contactForm.invalid || isSubmitting">
+            <span *ngIf="!isSubmitting">
+              <i class='bx bxs-paper-plane'></i> Enviar Mensaje
             </span>
-            <span *ngIf="!isSubmitting">Enviar Mensaje</span>
+            <span *ngIf="isSubmitting" class="loading-state">
+              <div class="spinner"></div> Enviando...
+            </span>
           </button>
         </form>
-      </div>
-      <div class="barradivisora"></div>
-      <!-- Información de contacto -->
-      <div class="contact-info-section">
-        <h2>Información de contacto</h2>
-        
-        <div class="contact-info-grid">
-          <div class="contact-info-item">
-            <div class="contact-icon">📍</div>
-            <div class="contact-details">
+      </article>
+      
+      <article class="contact-card info-card">
+        <header class="card-header">
+          <i class='bx bxs-info-circle'></i>
+          <h2>Nuestra Información</h2>
+        </header>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <i class='bx bxs-map'></i>
+            <div class="info-details">
               <h3>Dirección</h3>
               <p>{{ contactInfo.address }}</p>
             </div>
           </div>
 
-          <div class="contact-info-item">
-            <div class="contact-icon">📞</div>
-            <div class="contact-details">
+          <div class="info-item">
+            <i class='bx bxs-phone'></i>
+            <div class="info-details">
               <h3>Teléfono</h3>
               <p>{{ contactInfo.phone }}</p>
             </div>
           </div>
 
-          <!-- Email principal -->
-          <div class="contact-info-item">
-            <div class="contact-icon">✉️</div>
-            <div class="contact-details">
-              <h3>Email Principal</h3>
-              <p class="email-link">
-                <a href="mailto:{{ contactInfo.email }}" target="_blank">
-                  {{ contactInfo.email }}
-                </a>
-              </p>
+          <div class="info-item">
+            <i class='bx bxs-envelope-open'></i>
+            <div class="info-details">
+              <h3>Correo Electrónico</h3>
+              <a href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a>
             </div>
           </div>
 
-          <!-- Emails adicionales -->
-          <div class="contact-info-item" *ngIf="contactInfo.additionalEmails.length > 0">
-            <div class="contact-icon">📧</div>
-            <div class="contact-details">
-              <h3>Otros Emails</h3>
-              <div class="additional-emails">
-                <p *ngFor="let email of contactInfo.additionalEmails" class="email-link">
-                  <a href="mailto:{{ email }}" target="_blank">
-                    {{ email }}
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-icon">🕒</div>
-            <div class="contact-details">
-              <h3>Horarios de atención</h3>
+          <div class="info-item">
+            <i class='bx bxs-time-five'></i>
+            <div class="info-details">
+              <h3>Horarios de Atención</h3>
               <p [innerHTML]="contactInfo.hours.replace('\n', '<br>')"></p>
             </div>
           </div>
         </div>
 
-        <!-- Mapa placeholder -->
-        <div class="map-placeholder">
-          <div class="map-icon">🗺️</div>
-          <h3>Ubicación</h3>
-          <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.0727820239745!2d-57.68265602335098!3d-36.310541849634554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95999e5a8466eb7f%3A0x9afa445df209f683!2sAv.%20Buenos%20Aires%20565%2C%20B7100%20Dolores%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1755710925752!5m2!1ses-419!2sar" width="350" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3228.847527653653!2d-57.85408668473336!3d-36.21953598011383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959b85a3c051a37b%3A0x6b1f238b6d4e23a!2sBuenos%20Aires%20565%2C%20B7100%20Dolores%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1663000000000" 
+            width="100%" 
+            height="250" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-      </div>
+      </article>
+
     </div>
-  </div>
-</section>
-<div class="barradivisora"></div>
-<!-- Sección FAQ -->
+  </section>
+
+
 
 </main>
