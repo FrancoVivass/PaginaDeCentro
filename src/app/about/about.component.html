@@ -1,55 +1,115 @@
 <main class="AboutBody">
-  <!-- HERO -->
+  <!-- Hero Section Mejorado -->
   <section class="about-hero">
+    <div class="hero-overlay"></div>
     <div class="container">
       <div class="about-hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-users"></i>
+          <span>Nuestro Equipo</span>
+        </div>
         <h1>Nuestro Personal</h1>
         <p>Conoce a nuestro equipo de profesionales dedicados a brindar excelencia académica y administrativa</p>
       </div>
-      <div class="barradivisora"></div>
     </div>
   </section>
 
   <!-- CONTENEDOR -->
   <div class="about-container">
-    <!-- PESTAÑAS -->
+    <!-- PESTAÑAS Mejoradas -->
     <div class="tabs">
-      <button (click)="setTab('teachers')" [class.active]="activeTab==='teachers'">Profesores</button>
-      <button (click)="setTab('directors')" [class.active]="activeTab==='directors'">Directivos</button>
-      <button (click)="setTab('staff')" [class.active]="activeTab==='staff'">Personal</button>
+      <button (click)="setTab('teachers')" [class.active]="activeTab==='teachers'" class="tab-btn">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Profesores</span>
+        <div class="tab-count">{{ teachers.length }}</div>
+      </button>
+      <button (click)="setTab('directors')" [class.active]="activeTab==='directors'" class="tab-btn">
+        <i class="fas fa-user-tie"></i>
+        <span>Directivos</span>
+        <div class="tab-count">{{ directors.length }}</div>
+      </button>
+      <button (click)="setTab('staff')" [class.active]="activeTab==='staff'" class="tab-btn">
+        <i class="fas fa-user-cog"></i>
+        <span>Personal</span>
+        <div class="tab-count">{{ staff.length }}</div>
+      </button>
     </div>
 
     <!-- CONTENIDO -->
     <div class="tab-content">
       <!-- Profesores -->
       <div *ngIf="activeTab==='teachers'" class="grid-section">
-        <article *ngFor="let teacher of teachers" class="card">
-          <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
-          <h3>{{ teacher.fullName }}</h3>
-          <p class="position">{{ teacher.position }}</p>
-          <p class="career" *ngIf="teacher.career"><strong>Carrera:</strong> {{ teacher.career }}</p>
-          <p class="bio" *ngIf="teacher.bio">{{ teacher.bio }}</p>
+        <article *ngFor="let teacher of teachers" class="card teacher-card">
+          <div class="card-header">
+            <div class="photo-container">
+              <div class="photo placeholder">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="card-badge">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <h3>{{ teacher.fullName }}</h3>
+            <p class="position">{{ teacher.position }}</p>
+            <p class="career" *ngIf="teacher.career">
+              <i class="fas fa-book"></i>
+              {{ teacher.career }}
+            </p>
+            <p class="bio" *ngIf="teacher.bio">{{ teacher.bio }}</p>
+          </div>
         </article>
       </div>
 
       <!-- Directivos -->
       <div *ngIf="activeTab==='directors'" class="grid-section">
         <article *ngFor="let director of directors" class="card director-card">
-          <img *ngIf="director.photoUrl; else placeholder" [src]="director.photoUrl" [alt]="director.fullName" class="photo" loading="lazy" />
-          <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
-          <h3>{{ director.fullName }}</h3>
-          <p class="position">{{ director.position }}</p>
-          <p class="bio" *ngIf="director.bio">{{ director.bio }}</p>
+          <div class="card-header">
+            <div class="photo-container">
+              <img *ngIf="director.photoUrl; else placeholder" [src]="director.photoUrl" [alt]="director.fullName" class="photo" loading="lazy" />
+              <ng-template #placeholder>
+                <div class="photo placeholder">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+              </ng-template>
+              <div class="card-badge director-badge">
+                <i class="fas fa-crown"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <h3>{{ director.fullName }}</h3>
+            <p class="position">{{ director.position }}</p>
+            <p class="bio" *ngIf="director.bio">{{ director.bio }}</p>
+          </div>
+          
         </article>
       </div>
 
       <!-- Personal -->
       <div *ngIf="activeTab==='staff'" class="grid-section">
         <article *ngFor="let s of staff" class="card staff-card">
-          <ng-template #placeholder><div class="photo placeholder">Sin foto</div></ng-template>
-          <h3>{{ s.fullName }}</h3>
-          <p class="position">{{ s.position }}</p>
-          <p class="bio" *ngIf="s.bio">{{ s.bio }}</p>
+          <div class="card-header">
+            <div class="photo-container">
+              <div class="photo placeholder">
+                <i class="fas fa-user-cog"></i>
+              </div>
+              <div class="card-badge staff-badge">
+                <i class="fas fa-cogs"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <h3>{{ s.fullName }}</h3>
+            <p class="position">{{ s.position }}</p>
+            <p class="bio" *ngIf="s.bio">{{ s.bio }}</p>
+          </div>
+          
+
         </article>
       </div>
     </div>

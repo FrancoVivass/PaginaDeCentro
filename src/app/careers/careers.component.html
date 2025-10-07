@@ -1,17 +1,38 @@
 <main class="CarrersBody">
+  <!-- Hero Section Mejorado -->
   <section class="careers-hero">
-    <div class="container">
-      <div class="careers-hero-content">
-        <h1>Nuestras Carreras</h1>
-        <p>Descubre la amplia variedad de programas académicos diseñados para tu futuro profesional</p>
+    <div class="hero-overlay">
+      <div class="container">
+        <div class="careers-hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Programas Académicos</span>
+          </div>
+          <h1>Nuestras Carreras</h1>
+          <p>Descubre la amplia variedad de programas académicos diseñados para tu futuro profesional</p>
+          
+          <!-- Estadísticas rápidas -->
+
+        </div>
       </div>
     </div>
   </section>
-  <div class="barradivisora"></div>
+  <!-- Sección de Búsqueda Mejorada -->
   <section class="search-section">
     <div class="container">
+      <div class="search-header">
+        <h2 class="search-title">
+          <i class="fas fa-search"></i>
+          Encuentra tu Carrera Ideal
+        </h2>
+        <p class="search-subtitle">Explora nuestras opciones académicas y encuentra el programa que mejor se adapte a tus objetivos</p>
+      </div>
+      
       <div class="search-container">
         <div class="search-input-group">
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
           <input 
             type="text" 
             [(ngModel)]="searchTerm" 
@@ -25,16 +46,37 @@
             *ngIf="searchTerm"
             aria-label="Limpiar búsqueda"
           >
-            ✕
+            <i class="fas fa-times"></i>
           </button>
         </div>
+        
+        <!-- Filtros adicionales -->
+        <div class="search-filters">
+          <div class="filter-group">
+            <label class="filter-label">
+              <i class="fas fa-calendar-alt"></i>
+              Días de cursada
+            </label>
+            <div class="filter-options">
+              <button class="filter-btn" *ngFor="let day of availableDays" 
+                      [class.active]="selectedDays.includes(day)"
+                      (click)="toggleDayFilter(day)">
+                {{ day }}
+              </button>
+            </div>
+          </div>
+        </div>
+        
         <div class="search-info">
-          <span *ngIf="filteredCareers.length !== careers.length">
-            Mostrando {{ filteredCareers.length }} de {{ careers.length }} carreras
-          </span>
-          <span *ngIf="filteredCareers.length === careers.length">
-            {{ careers.length }} carreras disponibles
-          </span>
+          <div class="search-results">
+            <i class="fas fa-info-circle"></i>
+            <span *ngIf="filteredCareers.length !== careers.length">
+              Mostrando {{ filteredCareers.length }} de {{ careers.length }} carreras
+            </span>
+            <span *ngIf="filteredCareers.length === careers.length">
+              {{ careers.length }} carreras disponibles
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -54,39 +96,23 @@
       </div>
 
       <div *ngIf="!isLoading && !error" class="careers-grid" role="list">
-        <button 
+        <div 
           *ngFor="let career of filteredCareers" 
           class="career-card"
           (click)="selectCareer(career)"
-
-          type="button"
           role="listitem"
         >
+          <!-- Header de la tarjeta -->
           <div class="career-header">
-            <h3 class="career-title">{{ career.name }}</h3>
-            
-            <div class="career-days">
+            <div class="career-badge">
+              <i class="fas fa-graduation-cap"></i>
             </div>
-          </div>
-          
-          <p class="career-description">{{ career.description }}</p>
-          
-          <div class="career-teachers" *ngIf="getTeachersForCareer(career).length > 0">
-            <h4>Profesores:</h4>
-            <div class="teachers-list">
-              <div *ngFor="let teacher of getTeachersForCareer(career)" class="teacher-item">
-                <div class="teacher-info">
-                  <strong>{{ teacher.fullName }}</strong>
-                  <span class="teacher-position">{{ teacher.position }}</span>
-                </div>
+            <div class="career-title-section">
+              <h3 class="career-title">{{ career.name }}</h3>
+              <div class="career-days">
+                <span class="day-tag" *ngFor="let day of career.days">{{ day }}</span>
               </div>
             </div>
-          </div>
-          
-          <div class="career-footer">
-            <span class="career-schedule">
-              <strong>Días de cursada:</strong> {{ career.days.join(', ') }}
-            </span>
             <button 
               class="career-share-btn" 
               (click)="openShareModal(career, $event)"
@@ -96,7 +122,45 @@
               <i class="fas fa-share-alt"></i>
             </button>
           </div>
-        </button>
+          
+          <!-- Contenido principal -->
+          <div class="career-content">
+            <p class="career-description">{{ career.description }}</p>
+            
+            <!-- Profesores -->
+            <div class="career-teachers" *ngIf="getTeachersForCareer(career).length > 0">
+              <h4>
+                <i class="fas fa-chalkboard-teacher"></i>
+                Profesores
+              </h4>
+              <div class="teachers-list">
+                <div *ngFor="let teacher of getTeachersForCareer(career)" class="teacher-item">
+                  <div class="teacher-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="teacher-info">
+                    <strong>{{ teacher.fullName }}</strong>
+                    <span class="teacher-position">{{ teacher.position }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Footer con información adicional -->
+          <div class="career-footer">
+            <div class="career-schedule">
+              <i class="fas fa-calendar-alt"></i>
+              <span>{{ career.days.join(', ') }}</span>
+            </div>
+            <div class="career-actions">
+              <button class="btn-primary">
+                <i class="fas fa-arrow-right"></i>
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
         
       </div>
 
@@ -142,3 +206,4 @@
     </button>
   </div>
 </div>
+

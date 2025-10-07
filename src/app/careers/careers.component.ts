@@ -26,6 +26,10 @@ export class CareersComponent implements OnInit {
   selectedCareer: Career | null = null;
   showShareModal = false;
   careerToShare: Career | null = null;
+  
+  // Nuevas propiedades para filtros
+  availableDays: string[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  selectedDays: string[] = [];
 
   constructor(
     private careersService: CareersService,
@@ -75,23 +79,46 @@ export class CareersComponent implements OnInit {
   }
 
   filterCareers() {
-    if (!this.searchTerm.trim()) {
-      this.filteredCareers = this.careers;
-      return;
+    let filtered = this.careers;
+    
+    // Filtro por texto de búsqueda
+    if (this.searchTerm.trim()) {
+      const term = this.searchTerm.toLowerCase().trim();
+      filtered = filtered.filter(career =>
+        career.name.toLowerCase().includes(term) ||
+        career.description.toLowerCase().includes(term) ||
+        career.days.some(day => day.toLowerCase().includes(term)) ||
+        this.getTeachersForCareer(career).some(teacher => 
+          teacher.fullName.toLowerCase().includes(term)
+        )
+      );
     }
-    const term = this.searchTerm.toLowerCase().trim();
-    this.filteredCareers = this.careers.filter(career =>
-      career.name.toLowerCase().includes(term) ||
-      career.description.toLowerCase().includes(term) ||
-      career.days.some(day => day.toLowerCase().includes(term)) ||
-      this.getTeachersForCareer(career).some(teacher => 
-        teacher.fullName.toLowerCase().includes(term)
-      )
-    );
+    
+    // Filtro por días seleccionados
+    if (this.selectedDays.length > 0) {
+      filtered = filtered.filter(career =>
+        this.selectedDays.some(selectedDay =>
+          career.days.some(day => day.toLowerCase().includes(selectedDay.toLowerCase()))
+        )
+      );
+    }
+    
+    this.filteredCareers = filtered;
+  }
+  
+  toggleDayFilter(day: string) {
+    const index = this.selectedDays.indexOf(day);
+    if (index > -1) {
+      this.selectedDays.splice(index, 1);
+    } else {
+      this.selectedDays.push(day);
+    }
+    this.filterCareers();
   }
 
   clearSearch() {
     this.searchTerm = '';
+    this.selectedDays = [];
     this.filteredCareers = this.careers;
   }
 
@@ -106,49 +133,39 @@ export class CareersComponent implements OnInit {
     this.careerToShare = career;
     this.showShareModal = true;
   }
-  
+
   closeShareModal() {
     this.showShareModal = false;
     this.careerToShare = null;
   }
-  
-  // Devuelve la URL actual de la página (para compartir correctamente)
-  getCareerShareUrl(): string {
-    if (!this.careerToShare) return window.location.href;
-  
-    // Tomamos la URL actual
-    const currentUrl = window.location.href;
-  
-    // Obtenemos la parte base hasta "/careers"
-    const index = currentUrl.indexOf('/careers');
-    const baseUrl = index !== -1 ? currentUrl.slice(0, index) : currentUrl;
-  
-    // Retornamos la URL completa con el ID de la carrera
-    return `${baseUrl}/careers/${this.careerToShare.id}`;
+
+  getCurrentUrl(): string {
+    return window.location.href;
   }
-  
-  
-  // WhatsApp
+
+  getCareerUrl(career: Career): string {
+    return `${window.location.origin}/careers/${career.id}`;
+  }
+
   shareWhatsApp() {
     if (!this.careerToShare) return;
-    const url = this.getCareerShareUrl();
-    const text = `Mira esta carrera: ${this.careerToShare.name} - ${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    const url = encodeURIComponent(this.getCareerUrl(this.careerToShare));
+    const text = encodeURIComponent(`Mira esta carrera: ${this.careerToShare.name} - ${url}`);
+    window.open(`https://wa.me/?text=${text}`, '_blank');
   }
-  
+
   shareEmail() {
     if (!this.careerToShare) return;
     const subject = encodeURIComponent(`Te comparto la carrera: ${this.careerToShare.name}`);
-    const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCareerShareUrl()}`);
+    const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCareerUrl(this.careerToShare)}`);
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   }
-  
+
   copyLink() {
     if (!this.careerToShare) return;
-    const url = this.getCareerShareUrl();
+    const url = this.getCareerUrl(this.careerToShare);
     navigator.clipboard.writeText(url).then(() => {
       alert('¡Enlace copiado al portapapeles!');
     });
   }
-  
 }

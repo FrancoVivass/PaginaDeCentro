@@ -1,5 +1,6 @@
 <main class="home">
 
+  <!-- Hero Section Mejorado -->
   <section class="hero">
     <!-- Video de fondo optimizado para escritorio y móviles -->
     <video class="hero-video" autoplay muted loop playsinline preload="metadata">
@@ -7,25 +8,113 @@
       Tu navegador no soporta videos en HTML5.
     </video>
 
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
-      <h1 class="titulo">{{ heroTitle }}</h1>
+      <div class="hero-badge">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Centro Universitario</span>
+      </div>
+      
+      <h1 class="hero-title">{{ heroTitle }}</h1>
       <p class="hero-subtitle">{{ heroSubtitle }}</p>
 
+
       <div class="hero-actions">
-        <a routerLink="/careers" class="btn btn-secondary">Ver Carreras</a>
-        <a routerLink="/institucion" class="btn btn-secondary">Más Informacion</a>
-        <a routerLink="/contact" class="btn btn-secondary">Contactanos</a>
-        <a routerLink="/reservar" class="btn btn-secondary">Reservar Aula</a>
+        <a routerLink="/careers" class="btn btn-primary">
+          <i class="fas fa-graduation-cap"></i>
+          Ver Carreras
+        </a>
+        <a routerLink="/institucion" class="btn btn-secondary">
+          <i class="fas fa-info-circle"></i>
+          Más Información
+        </a>
+        <a routerLink="/contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i>
+          Contáctanos
+        </a>
+        <a routerLink="/reservar" class="btn btn-outline">
+          <i class="fas fa-calendar-plus"></i>
+          Reservar Aula
+        </a>
       </div>
     </div>
-
-    <div class="barradivisora"></div>
   </section>
 
+  <div class="barradivisora"></div>
+
+  <!-- Sección de Características -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <p class="section-subtitle">Descubre las ventajas que nos hacen únicos en la educación superior</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card" *ngFor="let feature of features">
+          <div class="feature-icon">
+            <i [class]="feature.iconClass"></i>
+          </div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="barradivisora"></div>
+
+  <!-- Sección de Estadísticas -->
+
+
+  <div class="barradivisora"></div>
+
+  <!-- Sección de Colaboración Mejorada -->
   <section class="colaboracion">
-    <div class="colaboracion-logos">
-      <a href="https://puentes.gba.gob.ar/" target="_blank" rel="noopener noreferrer" class="logo-puentes" aria-label="Programa Puentes"></a>
-      <a href="https://dolores.gob.ar" target="_blank" rel="noopener noreferrer" class="logo-municipalidad" aria-label="Municipalidad de Dolores"></a>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestros Aliados Estratégicos</h2>
+        <p class="section-subtitle">Trabajamos en conjunto con instituciones reconocidas para brindar la mejor educación</p>
+      </div>
+      
+      <div class="colaboracion-logos">
+        <a href="https://puentes.gba.gob.ar/" target="_blank" rel="noopener noreferrer" class="logo-card" aria-label="Programa Puentes">
+          <div class="logo-image logo-puentes"></div>
+          <div class="logo-info">
+            <h3>Programa Puentes</h3>
+          </div>
+        </a>
+        
+        <a href="https://dolores.gob.ar" target="_blank" rel="noopener noreferrer" class="logo-card" aria-label="Municipalidad de Dolores">
+          <div class="logo-image logo-municipalidad"></div>
+          <div class="logo-info">
+            <h3>Municipalidad de Dolores</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="barradivisora"></div>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para comenzar tu futuro?</h2>
+        <p>Únete a nuestra comunidad educativa y forma parte del cambio en la educación superior regional</p>
+        <div class="cta-actions">
+          <a routerLink="/careers" class="btn btn-primary">
+            <i class="fas fa-graduation-cap"></i>
+            Explorar Carreras
+          </a>
+          <a routerLink="/contact" class="btn btn-outline">
+            <i class="fas fa-phone"></i>
+            Contactar Ahora
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

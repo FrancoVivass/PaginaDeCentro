@@ -16,9 +16,9 @@ export interface ContactMessage {
 })
 export class EmailService {
   // Valores reales de EmailJS proporcionados por el usuario
-  private readonly SERVICE_ID = 'service_nukjt19';
-  private readonly TEMPLATE_ID = 'template_ijs70xd';
-  private readonly PUBLIC_KEY = 'Pv8RywJYKIJeRxgMv';
+  private readonly SERVICE_ID = 'service_poobixq';
+  private readonly TEMPLATE_ID = 'template_vcwzpai';
+  private readonly PUBLIC_KEY = '2C_6yiJMAWuf3op-9jwB_';
 
   constructor() {}
 

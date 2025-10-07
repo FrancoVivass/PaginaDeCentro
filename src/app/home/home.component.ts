@@ -21,24 +21,34 @@ export class HomeComponent {
   // Características destacadas
   features = [
     {
-      icon: '🎓',
+      iconClass: 'fas fa-graduation-cap',
       title: 'Excelencia Académica',
-      description: 'Programas educativos de alta calidad con docentes especializados'
+      description: 'Programas educativos de alta calidad con docentes especializados y metodologías innovadoras'
     },
     {
-      icon: '🏢',
+      iconClass: 'fas fa-building',
       title: 'Infraestructura Moderna',
-      description: 'Aulas equipadas con tecnología de vanguardia para el aprendizaje'
+      description: 'Aulas equipadas con tecnología de vanguardia para el aprendizaje y laboratorios especializados'
     },
     {
-      icon: '🤝',
+      iconClass: 'fas fa-user-friends',
       title: 'Acompañamiento Personal',
-      description: 'Seguimiento individualizado del progreso académico de cada estudiante'
+      description: 'Seguimiento individualizado del progreso académico de cada estudiante con tutores dedicados'
     },
     {
-      icon: '🌍',
+      iconClass: 'fas fa-globe-americas',
       title: 'Visión Global',
-      description: 'Preparación para un mundo laboral internacional y competitivo'
+      description: 'Preparación para un mundo laboral internacional y competitivo con enfoque en competencias globales'
+    },
+    {
+      iconClass: 'fas fa-handshake',
+      title: 'Vinculación Laboral',
+      description: 'Convenios con empresas locales y regionales para prácticas profesionales y empleabilidad'
+    },
+    {
+      iconClass: 'fas fa-heart',
+      title: 'Compromiso Social',
+      description: 'Formación de profesionales comprometidos con el desarrollo de la comunidad y valores humanos'
     }
   ];
 

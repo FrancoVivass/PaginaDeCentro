@@ -1,104 +1,203 @@
 <main class="InstitucionBody">
 
-  <main class="about">
-
-    <!-- Hero -->
-    <section class="about-hero">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay">
       <div class="container">
-        <div class="about-hero-content">
-          <h1>Nuestra Institución</h1>
-          <p>Conoce la historia, misión y valores que nos definen como institución educativa</p>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Centro Universitario</span>
+          </div>
+          <h1 class="hero-title">Centro Universitario de Dolores</h1>
+          <p class="hero-subtitle">Formando el futuro de la educación superior en el sudeste bonaerense</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestras Instalaciones</h2>
+        <p class="section-subtitle">Conoce los espacios donde se forja el conocimiento</p>
+      </div>
+      
+      <!-- Nuevo Slider tipo carrusel por ítems -->
+      <div class="insti-gallery">
+        <div class="container">
+          <div class="slide" #gallerySlide>
+            <div class="item" style="background-image: url(assets/images/pasillo1.jpeg);">
+              <div class="content">
+                <div class="name">Campus Principal</div>
+                <div class="des">Nuestras modernas instalaciones académicas</div>
+              </div>
+            </div>
+            
+            <div class="item" style="background-image: url(assets/images/centro-universitario3.jpeg);">
 
-    <div class="barradivisora"></div>
+            </div>
+            <div class="item" style="background-image: url(assets/images/aulas.webp);">
+              <div class="content">
+                <div class="name">Aulas Modernas</div>
+                <div class="des">Espacios de aprendizaje colaborativo</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(assets/images/pasillo2.jpeg);">
 
-    <section class="containerslider">
-      <div class="slider-wrapper">
-        <div class="slider">
-          <img id="slide-1" src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary orange planet in space" />
-          <img id="slide-2" src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary green planet in space" />
-          <img id="slide-3" src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary blue planet in space" />
-        </div>
-        <div class="slider-nav">
-          <a href="slide-1"></a>
-          <a href="slide-2"></a>
-          <a href="slide-3"></a>
+            </div>
+            <div class="item" style="background-image: url(assets/images/pasillo3.jpeg);">
+
+            </div>
+            <div class="item" style="background-image: url(assets/images/pasillo4.jpeg);">
+
+            </div>
+            <div class="item" style="background-image: url(assets/images/pasillo5.jpeg);">
+
+            </div>
+            <div class="item" style="background-image: url(assets/images/Analista.webp);">
+              <div class="content">
+                <div class="name">Aula de Computación</div>
+                <div class="des">Tecnología de vanguardia para la formación</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(assets/images/formadores.jpeg);">
+              <div class="content">
+                <div class="name">Inauguracion</div>
+                <div class="des">Inauguración del Centro Universitario</div>
+              </div>
+            </div>
+            <div class="item" style="background-image: url(assets/images/centro-universitario2.jpeg);">
+
+            </div>
+            <div class="item" style="background-image: url(assets/images/FondoInstitucion.jpeg);">
+              <div class="content">
+                <div class="name">Entorno Natural</div>
+                <div class="des">Un ambiente propicio para el aprendizaje</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="button">
+            <button class="prev" (click)="prevGallery()"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next" (click)="nextGallery()"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          
+          <!-- Contenedor de preview para responsive -->
+          <div class="preview-container">
+            <div class="preview-item" style="background-image: url(assets/images/Analista.webp);" (click)="goToSlide(2)"></div>
+            <div class="preview-item" style="background-image: url(assets/images/formadores.jpeg);" (click)="goToSlide(3)"></div>
+            <div class="preview-item" style="background-image: url(assets/images/centro-universitario2.jpeg);" (click)="goToSlide(4)"></div>
+            <div class="preview-item" style="background-image: url(assets/images/FondoInstitucion.jpeg);" (click)="goToSlide(5)"></div>
+          </div>
         </div>
       </div>
-    </section>
-
-
-    <div class="barradivisora"></div>
-
-    <!-- Historia, Misión, Visión -->
-    <section class="institution-info">
-      <div class="container">
-        <div class="info-grid">
-          <div class="info-card">
-            <h2>Nuestra Historia</h2>
+    </div>
+  </section>
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestra Institución</h2>
+        <p class="section-subtitle">Un centro de excelencia académica comprometido con el desarrollo regional</p>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="about-card">
+            <div class="card-icon">
+              <i class="fas fa-history"></i>
+            </div>
+            <h3>Nuestra Historia</h3>
             <p>{{ institutionData.history }}</p>
           </div>
-          <div class="info-card">
-            <h2>Misión</h2>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Misión</h3>
             <p>{{ institutionData.mission }}</p>
           </div>
-          <div class="info-card">
-            <h2>Visión</h2>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3>Visión</h3>
             <p>{{ institutionData.vision }}</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Valores -->
-    <section class="values">
-      <div class="container">
-        <h2 class="section-title text-center">Nuestros Valores</h2>
-        <div class="values-grid">
-          <div class="value-card" *ngFor="let value of values">
-            <div class="value-icon">{{ value.icon }}</div>
-            <h3>{{ value.title }}</h3>
-            <p>{{ value.description }}</p>
+        
+        <div class="about-image">
+          <img src="assets/images/centro-universitario3.jpeg" alt="Centro Universitario de Dolores" class="main-image">
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <h4>Infraestructura Moderna</h4>
+              <p>Instalaciones equipadas con tecnología de vanguardia</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    <div class="carousel carousel--scroll-buttons carousel--scroll-markers carousel--inert">
-      <div class="carousel__slide" data-label="Slide 1">…</div>
-      <div class="carousel__slide" data-label="Slide 2">…</div>
-      <div class="carousel__slide" data-label="Slide 3">…</div>
-      <div class="carousel__slide" data-label="Slide 4">…</div>
-      <div class="carousel__slide" data-label="Slide 5">…</div>
     </div>
-    <div>
-    <div class="barradivisora"></div>
-
-    <!-- Slider Institución -->
-    <section class="institucion-slider">
-      <div class="slider-container">
-        <div class="slide" *ngFor="let slide of sliderImages; let i = index" [class.active]="i === currentIndex">
-          <img [src]="slide.imageUrl" [alt]="slide.title">
-          <div class="caption">
-            <h3>{{ slide.title }}</h3>
-            <p>{{ slide.description }}</p>
+  </section>
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nuestro Equipo Directivo</h2>
+          <p class="section-subtitle">Líderes comprometidos con la excelencia educativa</p>
+        </div>
+        
+        <div class="leadership-grid">
+          <div class="leader-card" *ngFor="let leader of leadership">
+            <div class="leader-image">
+              <img [src]="leader.photo" [alt]="leader.name">
+              <div class="leader-overlay">
+                <div class="social-links">
+                  <a *ngIf="leader.website" [href]="leader.website" target="_blank" class="social-link" title="Sitio Web"><i class="fas fa-globe"></i></a>
+                  <a *ngIf="leader.linkedin" [href]="leader.linkedin" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                  <a *ngIf="leader.email" [href]="'mailto:' + leader.email" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                  <a *ngIf="leader.facebook" [href]="leader.facebook" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                  <a *ngIf="leader.instagram" [href]="leader.instagram" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="leader-info">
+              <h3>{{ leader.name }}</h3>
+              <p class="leader-position">{{ leader.position }}</p>
+              <p class="leader-bio">{{ leader.bio }}</p>
+            </div>
           </div>
         </div>
-
-        <!-- Botones -->
-        <button class="prev" (click)="prevSlide()">&#10094;</button>
-        <button class="next" (click)="nextSlide()">&#10095;</button>
       </div>
     </section>
-    <section class="contaninercarrouselpadding">
-      <div class="containercarrousel">
-        <div class="carrousel">
-          <div class="carrousel_item"></div>
-          <div class="carrousel_item"></div>
-          <div class="carrousel_item"></div>
-          <div class="carrousel_item"></div>
-          <div class="carrousel_item"></div>
+  
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestros Valores</h2>
+        <p class="section-subtitle">Los principios que guían nuestra labor educativa</p>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let value of values; let i = index">
+          <div class="value-icon">
+            <i [class]="value.iconClass"></i>
+          </div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+          <div class="value-number">{{ '0' + (i + 1) }}</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+
+
+
+
+
+
+</main>

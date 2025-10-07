@@ -1,74 +1,185 @@
 <main class="CalendarBody">
 
-  <!-- Hero -->
+  <!-- Hero Section Mejorado -->
   <section class="calendar-hero">
+    <div class="hero-overlay"></div>
     <div class="container">
-      <h1>Calendario de Reservas</h1>
-      <p>Gestiona y reserva aulas para tus actividades académicas</p>
-      <div class="barradivisora"></div>
+      <div class="calendar-hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-calendar-plus"></i>
+          <span>Sistema de Reservas</span>
+        </div>
+        <h1>Calendario de Reservas</h1>
+        <p>Gestiona y reserva aulas para tus actividades académicas de manera fácil y rápida</p>
+        
+        <!-- Estadísticas rápidas -->
+
+
+      </div>
     </div>
   </section>
 
-  <!-- Botones de control -->
-
+  <!-- Pestañas Mejoradas -->
   <div class="tabs">
-    <button (click)="setTab('reservar')" [class.active]="activeTab==='reservar'">Reservar</button>
-    <button (click)="setTab('guia')" [class.active]="activeTab==='guia'">Guía de Reserva</button>
-    <button (click)="setTab('politica')" [class.active]="activeTab==='politica'">Política de Reserva</button>
+    <button (click)="setTab('reservar')" [class.active]="activeTab==='reservar'" class="tab-btn">
+      <i class="fas fa-calendar-plus"></i>
+      <span>Reservar Aula</span>
+    </button>
+    <button (click)="setTab('guia')" [class.active]="activeTab==='guia'" class="tab-btn">
+      <i class="fas fa-book-open"></i>
+      <span>Guía de Reserva</span>
+    </button>
+    <button (click)="setTab('politica')" [class.active]="activeTab==='politica'" class="tab-btn">
+      <i class="fas fa-shield-alt"></i>
+      <span>Política de Uso</span>
+    </button>
   </div>
   <!-- Secciones -->
-  <section *ngIf="activeTab==='reservar'">
-    <div class="calendar-container">
-      <iframe 
-        src="https://meet.brevo.com/reservarauladolores/reserva" 
-        title="Calendario de Reservas"
-        loading="lazy">
-      </iframe>
+  <section *ngIf="activeTab==='reservar'" class="reservation-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <i class="fas fa-calendar-alt"></i>
+          Sistema de Reservas
+        </h2>
+        <p>Selecciona el día y hora que mejor se adapte a tus necesidades</p>
+      </div>
+      
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <div class="calendar-info">
+            <h3>
+              <i class="fas fa-info-circle"></i>
+              Información Importante
+            </h3>
+            <ul class="info-list">
+              <li><i class="fas fa-clock"></i> Máximo 1 hora por reserva</li>
+              <li><i class="fas fa-users"></i> Hasta 30 personas por aula</li>
+              <li><i class="fas fa-mobile-alt"></i> Disponible 24/7</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="iframe-container">
+          <iframe 
+            src="https://meet.brevo.com/centro-universitario/centro-universitario-reservar-aula" 
+            title="Calendario de Reservas"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
     </div>
   </section>
 
-  <article *ngIf="activeTab==='guia'" class="info-card">
-    <header class="info-card__header">
-      <i class='bx bx-book-open info-card__icon'></i>
-      <h2 class="info-card__title">Guía para Reservas</h2>
-    </header>
-    <ul class="info-card__list">
-      <li>
-        <i class='bx bx-mobile-alt'></i>
-        <span>Las solicitudes se realizan en cualquier momento a través de la <strong>app oficial</strong>.</span>
-      </li>
-      <li>
-        <i class='bx bx-time-five'></i>
-        <span>Cada aula puede reservarse por un máximo de <strong>1 hora</strong>. Para más tiempo, realiza una nueva reserva.</span>
-      </li>
-      <li>
-        <i class='bx bx-detail'></i>
-        <span>Completa el formulario con <strong>día, hora y cantidad de personas</strong> (máximo 30).</span>
-      </li>
-    </ul>
-  </article>
+  <section *ngIf="activeTab==='guia'" class="info-section">
+    <div class="container">
+      <article class="info-card">
+        <header class="info-card__header">
+          <div class="info-card__icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h2 class="info-card__title">Guía para Reservas</h2>
+          <p class="info-card__subtitle">Sigue estos pasos para realizar tu reserva exitosamente</p>
+        </header>
+        <ul class="info-card__list">
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="list-content">
+              <h4>Acceso 24/7</h4>
+              <span>Las solicitudes se realizan en cualquier momento a través de la <strong>plataforma web</strong>.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="list-content">
+              <h4>Duración de Reserva</h4>
+              <span>Cada aula puede reservarse por un máximo de <strong>1 hora</strong>. Para más tiempo, realiza una nueva reserva.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div class="list-content">
+              <h4>Formulario de Reserva</h4>
+              <span>Completa el formulario con <strong>día, hora y cantidad de personas</strong> (máximo 30).</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="list-content">
+              <h4>Confirmación</h4>
+              <span>Recibirás una <strong>confirmación por email</strong> con los detalles de tu reserva.</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
-  <article *ngIf="activeTab==='politica'" class="info-card">
-    <header class="info-card__header">
-      <i class='bx bx-shield-quarter info-card__icon'></i>
-      <h2 class="info-card__title">Política de Uso</h2>
-    </header>
-    <ul class="info-card__list">
-      <li>
-        <i class='bx bx-trash'></i>
-        <span>Mantén el aula <strong>limpia y ordenada</strong> al finalizar.</span>
-      </li>
-      <li>
-        <i class='bx bx-calendar-check'></i>
-        <span>Respeta los <strong>horarios de inicio y fin</strong> de tu reserva.</span>
-      </li>
-      <li>
-        <i class='bx bx-error-circle'></i>
-        <span>No modifiques la disposición del mobiliario sin autorización.</span>
-      </li>
-       <li>
-        <i class='bx bx-wrench'></i>
-        <span>Reporta cualquier <strong>daño o problema</strong> al área encargada de inmediato.</span>
-      </li>
-    </ul>
-  </article>
+  <section *ngIf="activeTab==='politica'" class="info-section">
+    <div class="container">
+      <article class="info-card">
+        <header class="info-card__header">
+          <div class="info-card__icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h2 class="info-card__title">Política de Uso</h2>
+          <p class="info-card__subtitle">Normas y responsabilidades para el uso de las aulas</p>
+        </header>
+        <ul class="info-card__list">
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-broom"></i>
+            </div>
+            <div class="list-content">
+              <h4>Limpieza y Orden</h4>
+              <span>Mantén el aula <strong>limpia y ordenada</strong> al finalizar tu actividad.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="list-content">
+              <h4>Puntualidad</h4>
+              <span>Respeta los <strong>horarios de inicio y fin</strong> de tu reserva.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="list-content">
+              <h4>Mobiliario</h4>
+              <span>No modifiques la disposición del mobiliario sin autorización previa.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="list-content">
+              <h4>Reportes</h4>
+              <span>Reporta cualquier <strong>daño o problema</strong> al área encargada de inmediato.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="list-content">
+              <h4>Capacidad</h4>
+              <span>Respeta el <strong>límite de 30 personas</strong> por aula para garantizar la seguridad.</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>

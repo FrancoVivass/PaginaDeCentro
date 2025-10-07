@@ -63,9 +63,8 @@
   margin-right: -199px;
   gap: 2rem;
 }
-
 .nav-list a {
-  color: var(--header-text);
+  color: var(--blanco);
   text-decoration: none;
   font-size: 20px;
   transition: color 0.3s ease;
@@ -73,8 +72,21 @@
   position: relative;
 }
 
-.nav-list a:hover,
-.nav-list a.active {
+/* Enlaces cuando se hace scroll - se vuelven negros */
+.header.scrolled .nav-list a {
+  color: var(--black-900);
+}
+
+.nav-list a:hover {
+  color: var(--color-principal);
+}
+
+/* Enlaces activos cuando se hace scroll - más oscuro */
+.header.scrolled .nav-list a.active {
+  color: #1a1a1a;
+}
+
+.header.scrolled .nav-list a:hover {
   color: var(--color-principal);
 }
 
@@ -94,9 +106,14 @@
   padding: 0.6rem 1rem;
   font-weight: 600;
   letter-spacing: 1px;
-  color: var(--blanco) !important;
+  color: var(--black-900) !important;
   text-transform: uppercase;
   transition: color 0.3s ease;
+}
+
+/* Botón reservar cuando se hace scroll - se vuelve blanco */
+.header.scrolled .nav-cta a {
+  color: var(--blanco) !important;
 }
 
 .nav-cta a::after {
@@ -112,36 +129,19 @@
 }
 
 .nav-cta a:hover {
-  color: var(--blanco);
+  color: var(--color-principal);
+}
+
+.header.scrolled .nav-cta a:hover {
+  color: var(--color-principal);
 }
 
 .nav-cta a:hover::after {
   width: 100%;
 }
 
-/* Enlaces del header cuando se scrollea */
-.header.scrolled .nav-list a.active {
-  color: var(--blanco);
-}
 
-.header.scrolled .nav-list a:hover {
-  color: var(--color-principal);
-}
 
-/* Admin link */
-.admin-link {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-.admin-link:hover {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4c93 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
 
 /* Header acciones y toggle */
 .header-actions {
