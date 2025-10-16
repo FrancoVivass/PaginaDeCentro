@@ -6,3 +6,7 @@ export interface Reservation {
   endTime: string;
   reservedBy: string;
 }
+
+
+
+

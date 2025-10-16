@@ -50,13 +50,22 @@ export class ThemeService {
   private setTheme(theme: Theme): void {
     this.currentTheme.next(theme);
     this.applyTheme(theme);
-    localStorage.setItem('theme', theme);
+    
+    // Solo guardar en localStorage si estamos en el navegador
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', theme);
+    }
   }
 
   /**
    * Aplica el tema al documento
    */
   private applyTheme(theme: Theme): void {
+    // Solo aplicar tema si estamos en el navegador
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
     const body = document.body;
     
     if (theme === 'dark') {
@@ -72,6 +81,12 @@ export class ThemeService {
    * Carga el tema guardado o detecta el preferido del sistema
    */
   private loadTheme(): void {
+    // Verificar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      this.setTheme('light'); // Tema por defecto para SSR
+      return;
+    }
+
     const savedTheme = localStorage.getItem('theme') as Theme;
     
     if (savedTheme) {
@@ -87,6 +102,11 @@ export class ThemeService {
    * Escucha cambios en la preferencia del sistema
    */
   watchSystemPreference(): void {
+    // Solo escuchar cambios si estamos en el navegador
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return;
+    }
+
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
       if (!localStorage.getItem('theme')) {
         this.setTheme(e.matches ? 'dark' : 'light');

@@ -66,3 +66,7 @@ export class ReservationsService {
     return hours * 60 + minutes;
   }
 }
+
+
+
+

@@ -18,7 +18,10 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window !== 'undefined') {
+      this.isScrolled = window.scrollY > 50;
+    }
   }
 
   toggleMenu() {
@@ -38,6 +41,11 @@ export class HeaderComponent {
 
   /** Desactiva o activa scroll del body */
   private toggleBodyScroll(disable: boolean) {
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     if (disable) {
       document.body.style.overflow = 'hidden';
     } else {

@@ -90,25 +90,43 @@ export class CareerDetailComponent implements OnInit {
   }
 
   getCurrentUrl(): string {
-    return window.location.href;
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window !== 'undefined') {
+      return window.location.href;
+    }
+    return `https://centro-universitario.com/careers/${this.career?.id}`; // URL por defecto para SSR
   }
 
   shareWhatsApp() {
-    const url = encodeURIComponent(this.getCurrentUrl());
-    const text = encodeURIComponent(`Mira esta carrera: ${this.career?.name} - ${url}`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined') return;
+    
+    const url = this.getCurrentUrl();
+    const text = `Mira esta carrera: ${this.career?.name} - ${url}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
   }
 
   shareEmail() {
-    const subject = encodeURIComponent(`Te comparto la carrera: ${this.career?.name}`);
-    const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCurrentUrl()}`);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined') return;
+    
+    const subject = `Te comparto la carrera: ${this.career?.name}`;
+    const body = `Mira esta carrera que encontré:\n\n${this.getCurrentUrl()}`;
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = `mailto:?subject=${encodedSubject}&body=${encodedBody}`;
   }
 
   copyLink() {
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
+    
     const url = this.getCurrentUrl();
     navigator.clipboard.writeText(url).then(() => {
       alert('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+      alert('Error al copiar el enlace');
     });
   }
 }

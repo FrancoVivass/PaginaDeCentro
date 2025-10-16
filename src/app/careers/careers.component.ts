@@ -140,32 +140,57 @@ export class CareersComponent implements OnInit {
   }
 
   getCurrentUrl(): string {
-    return window.location.href;
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window !== 'undefined') {
+      return window.location.href;
+    }
+    return 'https://centro-universitario.com'; // URL por defecto para SSR
   }
 
   getCareerUrl(career: Career): string {
-    return `${window.location.origin}/careers/${career.id}`;
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window !== 'undefined') {
+      return `${window.location.origin}/careers/${career.id}`;
+    }
+    return `https://centro-universitario.com/careers/${career.id}`; // URL por defecto para SSR
   }
 
   shareWhatsApp() {
     if (!this.careerToShare) return;
-    const url = encodeURIComponent(this.getCareerUrl(this.careerToShare));
-    const text = encodeURIComponent(`Mira esta carrera: ${this.careerToShare.name} - ${url}`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined') return;
+    
+    const url = this.getCareerUrl(this.careerToShare);
+    const text = `Mira esta carrera: ${this.careerToShare.name} - ${url}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
   }
 
   shareEmail() {
     if (!this.careerToShare) return;
-    const subject = encodeURIComponent(`Te comparto la carrera: ${this.careerToShare.name}`);
-    const body = encodeURIComponent(`Mira esta carrera que encontré:\n\n${this.getCareerUrl(this.careerToShare)}`);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined') return;
+    
+    const subject = `Te comparto la carrera: ${this.careerToShare.name}`;
+    const body = `Mira esta carrera que encontré:\n\n${this.getCareerUrl(this.careerToShare)}`;
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = `mailto:?subject=${encodedSubject}&body=${encodedBody}`;
   }
 
   copyLink() {
     if (!this.careerToShare) return;
+    
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
+    
     const url = this.getCareerUrl(this.careerToShare);
     navigator.clipboard.writeText(url).then(() => {
       alert('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+      alert('Error al copiar el enlace');
     });
   }
 }

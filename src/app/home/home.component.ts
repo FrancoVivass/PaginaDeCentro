@@ -55,6 +55,11 @@ export class HomeComponent {
    // Forzar autoplay del video
    
   ngAfterViewInit(): void {
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
     const video: HTMLVideoElement | null = document.querySelector('.hero-video');
 
     const playVideo = () => {

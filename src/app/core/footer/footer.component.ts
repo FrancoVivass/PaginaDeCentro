@@ -25,3 +25,7 @@ export class FooterComponent {
     hours: 'Lunes a Viernes: 7:00 a 13:00 hs\nMartes a Viernes: 7:00 a 18:00 hs'
   };
 }
+
+
+
+

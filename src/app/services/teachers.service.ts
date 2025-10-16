@@ -35,3 +35,7 @@ export class TeachersService {
     return this.http.get<Teacher[]>(`${this.apiUrl}?${queryParams}`);
   }
 }
+
+
+
+

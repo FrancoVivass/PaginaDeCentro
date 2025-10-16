@@ -160,9 +160,26 @@ footer {
 
 .box__copyright p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: #000000;
   font-size: 0.9rem;
   font-weight: 400;
+}
+
+.developer-info {
+  margin-top: 0.5rem !important;
+  font-size: 0.8rem !important;
+}
+
+.developer-info a {
+  color: #1693a5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.developer-info a:hover {
+  color: #a8cfd3;
+  text-decoration: underline;
 }
 
 /* ========================================

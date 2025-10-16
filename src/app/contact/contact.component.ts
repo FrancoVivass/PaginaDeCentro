@@ -111,6 +111,7 @@ export class ContactComponent {
     name: '',
     email: '',
     phone: '',
+    phone2: '',
     message: ''
   };
 
@@ -123,8 +124,9 @@ export class ContactComponent {
 
   // Información de contacto - PERSONALIZA AQUÍ TU EMAIL
   contactInfo = {
-    address: 'Buenos Aires 565, Dolores, Buenos Aires, Argentina',
-    phone: '2245 445999',
+    address: 'Buenos Aires 545, Dolores, Buenos Aires, Argentina',
+    phone: '2245 445999' ,
+    phone2: '2245 403922 (WhatsApp)',
     // CAMBIA ESTE EMAIL POR EL TUYO:
     email: 'coesdolores@gmail.com',
     // O si quieres agregar más emails:
@@ -237,6 +239,7 @@ export class ContactComponent {
       name: '',
       email: '',
       phone: '',
+      phone2: '',
       message: ''
     };
   }

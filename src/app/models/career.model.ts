@@ -26,3 +26,7 @@ export interface Career {
   currentYear?: number;
   enrollment?: number; // Número de alumnos matriculados
 }
+
+
+
+

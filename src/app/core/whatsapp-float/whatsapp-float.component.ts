@@ -56,8 +56,11 @@ export class WhatsappFloatComponent implements OnInit {
     this.showTooltip = false;
     this.showPulse = true;
 
-    const whatsappUrl = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(this.initialMessage)}`;
-    window.open(whatsappUrl, '_blank');
+    // Solo ejecutar si estamos en el navegador (no en SSR)
+    if (typeof window !== 'undefined') {
+      const whatsappUrl = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(this.initialMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    }
 
     setTimeout(() => this.showPulse = false, 1000);
   }
